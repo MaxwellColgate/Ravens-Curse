@@ -130,7 +130,7 @@ anchors_preset = 0
 [node name="CoinRect" type="TextureRect" parent="HintCoin"]
 offset_right = 31.0
 offset_bottom = 4.0
-scale = Vector2(0.4, 0.5)
+scale = Vector2(0.6, 0.75)
 texture = SubResource("AtlasTexture_j4jos")
 expand_mode = 1
 stretch_mode = 3

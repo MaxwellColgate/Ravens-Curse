@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 ## Activates the discussion popup at the player's mouse position
 ## with a correct profile image and dialogue text

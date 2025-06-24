@@ -24,38 +24,102 @@ profile_texture = ExtResource("5_ip64u")
 dialogue_text = "I can't think of a third line xD"
 metadata/_custom_type_script = "uid://5x167bve2yks"
 
-[node name="LocationTemplate" type="Node2D"]
+[node name="LocationTemplate" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="Background" type="Node2D" parent="."]
+[node name="Background" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="BackgroundImage" type="TextureRect" parent="Background"]
-offset_right = 1151.0
-offset_bottom = 646.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_bdlmj")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Interactables" type="Node2D" parent="."]
+[node name="Interactables" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="HintCoins" type="Node2D" parent="Interactables"]
+[node name="HintCoins" type="Control" parent="Interactables"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="LampCoinTrigger" parent="Interactables/HintCoins" instance=ExtResource("2_v7pjr")]
-offset_left = 496.0
-offset_top = 102.0
-offset_right = 536.0
-offset_bottom = 163.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.429
+anchor_top = 0.15
+anchor_right = 0.467
+anchor_bottom = 0.252
+offset_left = 0.319946
+offset_top = -2.0
+offset_right = -0.640015
+offset_bottom = -0.160004
 metadata/_edit_use_anchors_ = true
 
-[node name="NPCs" type="Node2D" parent="Interactables"]
+[node name="NPCs" type="Control" parent="Interactables"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="DiscussionPoints" type="Node2D" parent="Interactables"]
+[node name="Discussions" type="Control" parent="Interactables"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 16.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="DiscussionPopupTrigger" type="TextureButton" parent="Interactables/DiscussionPoints"]
-offset_left = 216.0
-offset_top = 145.0
-offset_right = 271.0
-offset_bottom = 234.0
+[node name="DiscussionPopupTrigger" type="TextureButton" parent="Interactables/Discussions"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.179
+anchor_top = 0.207
+anchor_right = 0.229
+anchor_bottom = 0.356
+offset_left = 0.319977
+offset_top = 0.439987
+offset_right = 0.319977
+offset_bottom = -7.48001
 script = ExtResource("3_cfk1g")
 dialogue = Array[ExtResource("4_xpevp")]([SubResource("Resource_ip64u"), SubResource("Resource_x2lb7"), SubResource("Resource_7slap")])
+metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="Interactables/DiscussionPoints/DiscussionPopupTrigger" to="Interactables/DiscussionPoints/DiscussionPopupTrigger" method="_on_discussion_popup_trigger_pressed"]
+[connection signal="pressed" from="Interactables/Discussions/DiscussionPopupTrigger" to="Interactables/Discussions/DiscussionPopupTrigger" method="_on_discussion_popup_trigger_pressed"]

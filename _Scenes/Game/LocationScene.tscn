@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://71gqliehromg"]
+[gd_scene load_steps=8 format=3 uid="uid://71gqliehromg"]
 
 [ext_resource type="PackedScene" uid="uid://cxsmhtaoiidoy" path="res://_Scenes/Locations/TestLocations/location_template.tscn" id="1_i1wt7"]
 [ext_resource type="PackedScene" uid="uid://dwawjjusg6gs5" path="res://_Scenes/UI/Popups/DiscussionPopup/discussion_popup.tscn" id="2_wdvni"]
@@ -12,42 +12,97 @@ point_count = 1
 [sub_resource type="CurveTexture" id="CurveTexture_wdvni"]
 curve = SubResource("Curve_wdvni")
 
-[node name="Game" type="Node2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_lxbk8"]
+font_size = 30
 
-[node name="LocationScene" type="Node2D" parent="."]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LocationScene" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="LocationTemplate" parent="LocationScene" instance=ExtResource("1_i1wt7")]
+layout_mode = 1
 
-[node name="UIScene" type="Node2D" parent="."]
+[node name="UIScenes" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
 
-[node name="DiscussionPopup" parent="UIScene" instance=ExtResource("2_wdvni")]
+[node name="DiscussionPopup" parent="UIScenes" instance=ExtResource("2_wdvni")]
 visible = false
+layout_mode = 1
 
-[node name="HintCoinNotif" type="TextureRect" parent="UIScene"]
+[node name="HintCoinNotif" type="TextureRect" parent="UIScenes"]
 visible = false
-offset_left = 352.0
-offset_top = 232.0
-offset_right = 785.0
-offset_bottom = 400.0
+layout_mode = 0
+offset_left = 552.0
+offset_top = 385.0
+offset_right = 1341.0
+offset_bottom = 696.0
 texture = SubResource("CurveTexture_wdvni")
 script = ExtResource("3_lxbk8")
 
-[node name="CollectionText" type="Label" parent="UIScene/HintCoinNotif"]
+[node name="CollectionText" type="Label" parent="UIScenes/HintCoinNotif"]
 layout_mode = 0
-offset_left = 153.0
-offset_top = 16.0
-offset_right = 425.0
-offset_bottom = 152.0
+offset_left = 344.0
+offset_top = 63.0
+offset_right = 728.0
+offset_bottom = 255.0
 text = "You found a hint coin!"
+label_settings = SubResource("LabelSettings_lxbk8")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="CoinImage" type="TextureRect" parent="UIScene/HintCoinNotif"]
+[node name="CoinImage" type="TextureRect" parent="UIScenes/HintCoinNotif"]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 152.0
-offset_bottom = 152.0
+offset_left = 40.0
+offset_top = 15.0
+offset_right = 320.0
+offset_bottom = 295.0
 texture = ExtResource("3_b6baj")
 expand_mode = 1
+
+[node name="ConversationScene" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="ConvoBackground" type="ColorRect" parent="ConversationScene"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0823529, 0.0823529, 0.0823529, 0.721569)
+
+[node name="LeftCharacterMark" type="Control" parent="ConversationScene"]
+anchors_preset = 0
+offset_left = 520.0
+offset_top = 768.0
+offset_right = 520.0
+offset_bottom = 768.0
+mouse_filter = 2
+
+[node name="RightCharacterMark" type="Control" parent="ConversationScene"]
+anchors_preset = 0
+offset_left = 1408.0
+offset_top = 768.0
+offset_right = 1408.0
+offset_bottom = 768.0
+mouse_filter = 2
