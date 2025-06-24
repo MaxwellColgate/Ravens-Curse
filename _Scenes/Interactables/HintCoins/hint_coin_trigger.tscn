@@ -1,14 +1,138 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmal3tjknb66o"]
+[gd_scene load_steps=8 format=3 uid="uid://dmal3tjknb66o"]
 
 [ext_resource type="Script" uid="uid://xsr3peeduj0b" path="res://_Scripts/UI/Interactables/HintCoins/hint_coin_trigger.gd" id="1_uf7r0"]
+[ext_resource type="Texture2D" uid="uid://e3d6ndc14yxb" path="res://_Assets/Textures/UI/HintCoins/TestCoinFlip.png" id="2_j4jos"]
 
-[node name="HintCoinTrigger" type="TextureButton"]
+[sub_resource type="Animation" id="Animation_j4jos"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HintCoin/CoinRect:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(2, 0, 31, 18)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HintCoin/CoinRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HintCoin:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j4jos"]
+_data = {
+&"RESET": SubResource("Animation_j4jos")
+}
+
+[sub_resource type="Animation" id="Animation_tv830"]
+resource_name = "coin_flip"
+length = 0.4
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"unlock_hint_coin"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HintCoin/CoinRect:texture:region")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.150159, 0.200159, 0.250159, 0.3, 0.35, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(2, 0, 31, 18), Rect2(35, 0, 31, 18), Rect2(68, 7, 32, 3), Rect2(2, 0, 31, 18), Rect2(35, 0, 31, 18), Rect2(68, 7, 32, 3), Rect2(2, 0, 31, 18), Rect2(35, 0, 31, 18), Rect2(68, 7, 32, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HintCoin/CoinRect:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -20), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HintCoin:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tv830"]
+_data = {
+&"coin_flip": SubResource("Animation_tv830")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4jos"]
+atlas = ExtResource("2_j4jos")
+region = Rect2(2, 0, 31, 18)
+
+[node name="HintCoinTrigger" type="TextureButton" node_paths=PackedStringArray("coin", "coin_flip_anim")]
 editor_description = "A template button for acquiring hint coints, clicking in this area will give the player a hint coin!"
-offset_left = 496.0
-offset_top = 101.0
-offset_right = 536.0
-offset_bottom = 162.0
 ignore_texture_size = true
 script = ExtResource("1_uf7r0")
+coin = NodePath("HintCoin")
+coin_flip_anim = NodePath("CoinFlipAnim")
+
+[node name="CoinFlipAnim" type="AnimationPlayer" parent="."]
+editor_description = "The animation for the hint coin flipping in the air when found"
+libraries = {
+&"": SubResource("AnimationLibrary_j4jos"),
+&"UI": SubResource("AnimationLibrary_tv830")
+}
+
+[node name="HintCoin" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+
+[node name="CoinRect" type="TextureRect" parent="HintCoin"]
+offset_right = 31.0
+offset_bottom = 4.0
+scale = Vector2(0.4, 0.5)
+texture = SubResource("AtlasTexture_j4jos")
+expand_mode = 1
+stretch_mode = 3
 
 [connection signal="pressed" from="." to="." method="hint_coin_found"]

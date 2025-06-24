@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e3d6ndc14yxb"
-path="res://.godot/imported/TestCoinFlip.png-da167e559f3a7c96cf6776491584629e.ctex"
+uid="uid://c4qfp8qtiefyi"
+path="res://.godot/imported/HintCoin.png-f5a2cea7504cfcbb8fdde2ee42bce4c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_Assets/Textures/UI/HintCoins/TestCoinFlip.png"
-dest_files=["res://.godot/imported/TestCoinFlip.png-da167e559f3a7c96cf6776491584629e.ctex"]
+source_file="res://_Assets/Textures/UI/HintCoins/HintCoin.png"
+dest_files=["res://.godot/imported/HintCoin.png-f5a2cea7504cfcbb8fdde2ee42bce4c4.ctex"]
 
 [params]
 

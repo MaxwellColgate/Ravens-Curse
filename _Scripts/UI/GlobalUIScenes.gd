@@ -9,3 +9,6 @@ extends Node
 
 # The discussion popup box
 var DiscussionPopup
+
+# The notification that appears when you collect a hint coin
+var HintCoinNotif
