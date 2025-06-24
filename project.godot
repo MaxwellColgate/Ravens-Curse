@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Ravens Curse"
-run/main_scene="uid://hi3e6rb4b6ry"
+run/main_scene="uid://71gqliehromg"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalUIScenes="*res://_Scripts/UI/GlobalUIScenes.gd"
 
 [dotnet]
 

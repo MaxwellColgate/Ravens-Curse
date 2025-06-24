@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxsmhtaoiidoy"]
+
+[ext_resource type="Texture2D" uid="uid://d3ld5nm8s2drj" path="res://_Assets/Textures/Backgrounds/TestBackground.png" id="1_bdlmj"]
+[ext_resource type="PackedScene" uid="uid://dmal3tjknb66o" path="res://_Scenes/Interactables/HintCoins/hint_coin_trigger.tscn" id="2_v7pjr"]
+[ext_resource type="Script" uid="uid://cdmk74rrlpu6n" path="res://_Scripts/UI/Popups/DiscussionPopup/discussion_popup_trigger.gd" id="3_cfk1g"]
+[ext_resource type="Script" uid="uid://5x167bve2yks" path="res://_Scripts/UI/Popups/DiscussionPopup/discussion_data.gd" id="4_xpevp"]
+[ext_resource type="Texture2D" uid="uid://cr3rdfabl4tfs" path="res://icon.svg" id="5_ip64u"]
+
+[sub_resource type="Resource" id="Resource_ip64u"]
+script = ExtResource("4_xpevp")
+profile_texture = ExtResource("5_ip64u")
+dialogue_text = "Wow, what a remarkable window!"
+metadata/_custom_type_script = "uid://5x167bve2yks"
+
+[sub_resource type="Resource" id="Resource_x2lb7"]
+script = ExtResource("4_xpevp")
+profile_texture = ExtResource("5_ip64u")
+dialogue_text = "That's crazy"
+metadata/_custom_type_script = "uid://5x167bve2yks"
+
+[sub_resource type="Resource" id="Resource_7slap"]
+script = ExtResource("4_xpevp")
+profile_texture = ExtResource("5_ip64u")
+dialogue_text = "I can't think of a good third line lmao"
+metadata/_custom_type_script = "uid://5x167bve2yks"
+
+[node name="LocationTemplate" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="BackgroundImage" type="TextureRect" parent="Background"]
+offset_right = 1151.0
+offset_bottom = 646.0
+texture = ExtResource("1_bdlmj")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="HintCoins" type="Node2D" parent="Interactables"]
+
+[node name="LampCoinTrigger" parent="Interactables/HintCoins" instance=ExtResource("2_v7pjr")]
+metadata/_edit_use_anchors_ = true
+
+[node name="NPCs" type="Node2D" parent="Interactables"]
+
+[node name="DiscussionPoints" type="Node2D" parent="Interactables"]
+
+[node name="DiscussionPopupTrigger" type="TextureButton" parent="Interactables/DiscussionPoints"]
+offset_left = 216.0
+offset_top = 145.0
+offset_right = 271.0
+offset_bottom = 234.0
+script = ExtResource("3_cfk1g")
+dialogue = Array[ExtResource("4_xpevp")]([SubResource("Resource_ip64u"), SubResource("Resource_x2lb7"), SubResource("Resource_7slap")])
+
+[connection signal="pressed" from="Interactables/DiscussionPoints/DiscussionPopupTrigger" to="Interactables/DiscussionPoints/DiscussionPopupTrigger" method="_on_discussion_popup_trigger_pressed"]

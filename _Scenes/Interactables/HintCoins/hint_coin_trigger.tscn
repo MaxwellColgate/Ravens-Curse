@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmal3tjknb66o"]
+
+[ext_resource type="Script" uid="uid://xsr3peeduj0b" path="res://_Scripts/UI/Interactables/HintCoins/hint_coin_trigger.gd" id="1_uf7r0"]
+
+[node name="HintCoinTrigger" type="TextureButton"]
+editor_description = "A template button for acquiring hint coints, clicking in this area will give the player a hint coin!"
+offset_left = 496.0
+offset_top = 101.0
+offset_right = 536.0
+offset_bottom = 162.0
+ignore_texture_size = true
+script = ExtResource("1_uf7r0")
+
+[connection signal="pressed" from="." to="." method="hint_coin_found"]

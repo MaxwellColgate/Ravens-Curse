@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3ld5nm8s2drj"
-path="res://.godot/imported/TestBackground.png-aee962be7aebd9dfbd5fa071e509e953.ctex"
+uid="uid://c371tvg6tbeer"
+path="res://.godot/imported/TestCoinFlip.png-da167e559f3a7c96cf6776491584629e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_Assets/Images/Backgrounds/TestBackground.png"
-dest_files=["res://.godot/imported/TestBackground.png-aee962be7aebd9dfbd5fa071e509e953.ctex"]
+source_file="res://_Assets/Textures/UI/HintCoins/TestCoinFlip.png"
+dest_files=["res://.godot/imported/TestCoinFlip.png-da167e559f3a7c96cf6776491584629e.ctex"]
 
 [params]
 
