@@ -1,26 +1,47 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxsmhtaoiidoy"]
+[gd_scene load_steps=15 format=3 uid="uid://cxsmhtaoiidoy"]
 
 [ext_resource type="Texture2D" uid="uid://d3ld5nm8s2drj" path="res://_Assets/Textures/Backgrounds/TestBackground.png" id="1_bdlmj"]
 [ext_resource type="PackedScene" uid="uid://dmal3tjknb66o" path="res://_Scenes/Interactables/HintCoins/hint_coin_trigger.tscn" id="2_v7pjr"]
-[ext_resource type="Script" uid="uid://cdmk74rrlpu6n" path="res://_Scripts/UI/Popups/DiscussionPopup/discussion_popup_trigger.gd" id="3_cfk1g"]
-[ext_resource type="Script" uid="uid://5x167bve2yks" path="res://_Scripts/UI/Popups/DiscussionPopup/discussion_data.gd" id="4_xpevp"]
-[ext_resource type="Texture2D" uid="uid://cr3rdfabl4tfs" path="res://icon.svg" id="5_ip64u"]
+[ext_resource type="PackedScene" uid="uid://cqldb76gnrurp" path="res://_Scenes/Interactables/Discussions/discussion_popup_trigger.tscn" id="3_cfk1g"]
+[ext_resource type="Script" uid="uid://blxw6udjhewjy" path="res://_Scripts/Characters/NPCs/Dialogue/npc_dialogue.gd" id="3_xpevp"]
+[ext_resource type="Script" uid="uid://bp4dyuu8y01eb" path="res://_Scripts/Characters/NPCs/Dialogue/dialogue_data.gd" id="4_ip64u"]
+[ext_resource type="Resource" uid="uid://djbiiwnuacml1" path="res://Resources/Characters/NPCs/Testing/test_character.tres" id="5_x2lb7"]
+[ext_resource type="Script" uid="uid://5x167bve2yks" path="res://_Scripts/UI/Popups/DiscussionPopup/discussion_data.gd" id="7_7slap"]
 
-[sub_resource type="Resource" id="Resource_ip64u"]
-script = ExtResource("4_xpevp")
-profile_texture = ExtResource("5_ip64u")
-dialogue_text = "Wow, what a remarkable window!"
-metadata/_custom_type_script = "uid://5x167bve2yks"
+[sub_resource type="Curve" id="Curve_ip64u"]
+_data = [Vector2(0.535104, 0.821479), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_x2lb7"]
+curve = SubResource("Curve_ip64u")
 
 [sub_resource type="Resource" id="Resource_x2lb7"]
-script = ExtResource("4_xpevp")
-profile_texture = ExtResource("5_ip64u")
+script = ExtResource("4_ip64u")
+dialogue_text = "a"
+character = ExtResource("5_x2lb7")
+metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
+
+[sub_resource type="Resource" id="Resource_7slap"]
+script = ExtResource("4_ip64u")
+dialogue_text = "testinggg g"
+character = ExtResource("5_x2lb7")
+metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
+
+[sub_resource type="Resource" id="Resource_gj6ly"]
+script = ExtResource("7_7slap")
+profile_texture = ExtResource("5_x2lb7")
+dialogue_text = "Wow, what a cool window!"
+metadata/_custom_type_script = "uid://5x167bve2yks"
+
+[sub_resource type="Resource" id="Resource_jt113"]
+script = ExtResource("7_7slap")
+profile_texture = ExtResource("5_x2lb7")
 dialogue_text = "That's crazy"
 metadata/_custom_type_script = "uid://5x167bve2yks"
 
-[sub_resource type="Resource" id="Resource_7slap"]
-script = ExtResource("4_xpevp")
-profile_texture = ExtResource("5_ip64u")
+[sub_resource type="Resource" id="Resource_jvs77"]
+script = ExtResource("7_7slap")
+profile_texture = ExtResource("5_x2lb7")
 dialogue_text = "I can't think of a third line xD"
 metadata/_custom_type_script = "uid://5x167bve2yks"
 
@@ -85,7 +106,6 @@ offset_bottom = -0.160004
 metadata/_edit_use_anchors_ = true
 
 [node name="NPCs" type="Control" parent="Interactables"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,33 +113,41 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="BaseNPC" type="TextureButton" parent="Interactables/NPCs"]
+layout_mode = 0
+offset_left = 1320.0
+offset_top = 744.0
+offset_right = 1440.0
+offset_bottom = 928.0
+texture_normal = SubResource("CurveTexture_x2lb7")
+texture_pressed = SubResource("CurveTexture_x2lb7")
+texture_hover = SubResource("CurveTexture_x2lb7")
+texture_disabled = SubResource("CurveTexture_x2lb7")
+texture_focused = SubResource("CurveTexture_x2lb7")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_xpevp")
+dialogue = Array[ExtResource("4_ip64u")]([SubResource("Resource_x2lb7"), SubResource("Resource_7slap")])
 
 [node name="Discussions" type="Control" parent="Interactables"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 8.0
-offset_right = 16.0
-offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="DiscussionPopupTrigger" type="TextureButton" parent="Interactables/Discussions"]
+[node name="DiscussionPopupTrigger" parent="Interactables/Discussions" instance=ExtResource("3_cfk1g")]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.179
-anchor_top = 0.207
-anchor_right = 0.229
-anchor_bottom = 0.356
-offset_left = 0.319977
-offset_top = 0.439987
-offset_right = 0.319977
-offset_bottom = -7.48001
-script = ExtResource("3_cfk1g")
-dialogue = Array[ExtResource("4_xpevp")]([SubResource("Resource_ip64u"), SubResource("Resource_x2lb7"), SubResource("Resource_7slap")])
-metadata/_edit_use_anchors_ = true
+anchor_left = 0.191667
+anchor_top = 0.22963
+anchor_bottom = 0.355556
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+dialogue = Array[ExtResource("7_7slap")]([SubResource("Resource_gj6ly"), SubResource("Resource_jt113"), SubResource("Resource_jvs77")])
 
-[connection signal="pressed" from="Interactables/Discussions/DiscussionPopupTrigger" to="Interactables/Discussions/DiscussionPopupTrigger" method="_on_discussion_popup_trigger_pressed"]
+[connection signal="pressed" from="Interactables/NPCs/BaseNPC" to="Interactables/NPCs/BaseNPC" method="_on_pressed"]

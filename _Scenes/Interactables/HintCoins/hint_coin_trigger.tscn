@@ -111,6 +111,7 @@ region = Rect2(2, 0, 31, 18)
 
 [node name="HintCoinTrigger" type="TextureButton" node_paths=PackedStringArray("coin", "coin_flip_anim")]
 editor_description = "A template button for acquiring hint coints, clicking in this area will give the player a hint coin!"
+action_mode = 0
 ignore_texture_size = true
 script = ExtResource("1_uf7r0")
 coin = NodePath("HintCoin")
@@ -128,6 +129,7 @@ visible = false
 anchors_preset = 0
 
 [node name="CoinRect" type="TextureRect" parent="HintCoin"]
+layout_mode = 0
 offset_right = 31.0
 offset_bottom = 4.0
 scale = Vector2(0.6, 0.75)

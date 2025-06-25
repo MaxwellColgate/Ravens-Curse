@@ -13,6 +13,6 @@ func _input(event):
 	if not self.visible:
 		return
 		
-	if event is InputEventMouseButton and event.is_released():
+	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			self.visible = false

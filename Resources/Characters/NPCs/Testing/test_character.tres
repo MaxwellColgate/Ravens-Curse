@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=3 format=3 uid="uid://djbiiwnuacml1"]
+
+[ext_resource type="Texture2D" uid="uid://cr3rdfabl4tfs" path="res://icon.svg" id="1_18rqa"]
+[ext_resource type="Script" uid="uid://dpi11ffvge5kp" path="res://_Scripts/Characters/character_data.gd" id="1_iqreg"]
+
+[resource]
+script = ExtResource("1_iqreg")
+name = "Test Character"
+default_idle = ExtResource("1_18rqa")
+default_talking = ExtResource("1_18rqa")
+shocked_idle = ExtResource("1_18rqa")
+shocked_talking = ExtResource("1_18rqa")
+default_profile = ExtResource("1_18rqa")
+metadata/_custom_type_script = "uid://dpi11ffvge5kp"
