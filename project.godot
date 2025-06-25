@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalUIScenes="*res://_Scripts/UI/GlobalUIScenes.gd"
+ConversationStarter="*res://_Scripts/Management/NPCs/Conversations/conversation_starter.gd"
 
 [display]
 

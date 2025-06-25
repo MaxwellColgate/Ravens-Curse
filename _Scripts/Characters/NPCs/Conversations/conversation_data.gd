@@ -1,5 +1,5 @@
 extends Resource
-class_name DialogueData
+class_name ConversationData
 
 ## Stores data related to a line of dialogue, multiple of these can
 ## be chained together to create a conversation

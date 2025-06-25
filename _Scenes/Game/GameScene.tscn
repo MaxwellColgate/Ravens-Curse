@@ -1,0 +1,181 @@
+[gd_scene load_steps=13 format=3 uid="uid://71gqliehromg"]
+
+[ext_resource type="PackedScene" uid="uid://cxsmhtaoiidoy" path="res://_Scenes/Locations/TestLocations/location_template.tscn" id="1_ydsbm"]
+[ext_resource type="PackedScene" uid="uid://dwawjjusg6gs5" path="res://_Scenes/UI/Popups/DiscussionPopup/discussion_popup.tscn" id="2_fu8qn"]
+[ext_resource type="Script" uid="uid://de14c8p2wem24" path="res://_Scripts/UI/Popups/HintCoinCollect/hint_coin_notif_manager.gd" id="3_qbgnm"]
+[ext_resource type="Texture2D" uid="uid://c4qfp8qtiefyi" path="res://_Assets/Textures/UI/HintCoins/HintCoin.png" id="4_mxajb"]
+[ext_resource type="Script" uid="uid://ccrvrit8ycsf3" path="res://_Scripts/Management/NPCs/Conversations/conversation_manager.gd" id="5_hkesi"]
+
+[sub_resource type="Curve" id="Curve_wdvni"]
+_data = [Vector2(0.667904, 0.716823), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_wdvni"]
+curve = SubResource("Curve_wdvni")
+
+[sub_resource type="LabelSettings" id="LabelSettings_lxbk8"]
+font_size = 30
+
+[sub_resource type="Gradient" id="Gradient_ydsbm"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.887895, 0.599413, 0.400224, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fu8qn"]
+gradient = SubResource("Gradient_ydsbm")
+
+[sub_resource type="Gradient" id="Gradient_fu8qn"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.427976, 0.651615, 0.476166, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qbgnm"]
+gradient = SubResource("Gradient_fu8qn")
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LocationScene" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LocationTemplate" parent="LocationScene" instance=ExtResource("1_ydsbm")]
+layout_mode = 1
+
+[node name="UIScenes" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="DiscussionPopup" parent="UIScenes" instance=ExtResource("2_fu8qn")]
+visible = false
+layout_mode = 1
+
+[node name="HintCoinNotif" type="TextureRect" parent="UIScenes"]
+visible = false
+layout_mode = 0
+offset_left = 552.0
+offset_top = 385.0
+offset_right = 1341.0
+offset_bottom = 696.0
+texture = SubResource("CurveTexture_wdvni")
+script = ExtResource("3_qbgnm")
+
+[node name="CollectionText" type="Label" parent="UIScenes/HintCoinNotif"]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 63.0
+offset_right = 728.0
+offset_bottom = 255.0
+text = "You found a hint coin!"
+label_settings = SubResource("LabelSettings_lxbk8")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="CoinImage" type="TextureRect" parent="UIScenes/HintCoinNotif"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 15.0
+offset_right = 320.0
+offset_bottom = 295.0
+texture = ExtResource("4_mxajb")
+expand_mode = 1
+
+[node name="ConversationScene" type="Control" parent="." node_paths=PackedStringArray("dialogue_text_box", "name_text_box")]
+visible = false
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+script = ExtResource("5_hkesi")
+dialogue_text_box = NodePath("DialogueBox/DialogueText")
+name_text_box = NodePath("DialogueBox/NameBox/NameText")
+
+[node name="ConvoBackground" type="ColorRect" parent="ConversationScene"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0823529, 0.0823529, 0.0823529, 0.721569)
+
+[node name="LeftCharacterMark" type="Control" parent="ConversationScene"]
+anchors_preset = 0
+offset_left = 520.0
+offset_top = 768.0
+offset_right = 520.0
+offset_bottom = 768.0
+mouse_filter = 2
+
+[node name="RightCharacterMark" type="Control" parent="ConversationScene"]
+anchors_preset = 0
+offset_left = 1408.0
+offset_top = 768.0
+offset_right = 1408.0
+offset_bottom = 768.0
+mouse_filter = 2
+
+[node name="DialogueBox" type="TextureRect" parent="ConversationScene"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.711
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.119995
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_fu8qn")
+
+[node name="DialogueText" type="RichTextLabel" parent="ConversationScene/DialogueBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = 24.0
+offset_right = -60.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.0096728, 0.0119961, 0.00860582, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "Test"
+fit_content = true
+scroll_active = false
+
+[node name="NameBox" type="TextureRect" parent="ConversationScene/DialogueBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.012
+anchor_right = 0.154
+offset_left = 0.959999
+offset_top = -64.0
+offset_right = 0.319977
+texture = SubResource("GradientTexture1D_qbgnm")
+
+[node name="NameText" type="RichTextLabel" parent="ConversationScene/DialogueBox/NameBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = -16.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1

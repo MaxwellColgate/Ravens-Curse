@@ -12,6 +12,7 @@ extends Node
 # Has this coin already been collected?
 var coin_collected = false
 
+
 # Activates the coin flip animation at mouse pos
 func hint_coin_found():
 	if coin_collected == true:

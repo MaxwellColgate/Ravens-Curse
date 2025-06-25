@@ -8,6 +8,7 @@ extends Node
 # The current line of dialogue we are on
 var current_dialogue_line = 0
 
+
 # When pressed, iterate through the provided list of dialogue
 func _on_discussion_popup_trigger_pressed() -> void:
 	# Go back to first line when dialogue is over

@@ -9,6 +9,7 @@ extends Control
 #The dialogue text box
 @export var dialogue_text_box: RichTextLabel
 
+
 # Notify Global list of UI scenes that this is the discussion popup
 func _ready():
 	GlobalUIScenes.DiscussionPopup = self

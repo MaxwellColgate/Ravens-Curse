@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://d3ld5nm8s2drj" path="res://_Assets/Textures/Backgrounds/TestBackground.png" id="1_bdlmj"]
 [ext_resource type="PackedScene" uid="uid://dmal3tjknb66o" path="res://_Scenes/Interactables/HintCoins/hint_coin_trigger.tscn" id="2_v7pjr"]
 [ext_resource type="PackedScene" uid="uid://cqldb76gnrurp" path="res://_Scenes/Interactables/Discussions/discussion_popup_trigger.tscn" id="3_cfk1g"]
-[ext_resource type="Script" uid="uid://blxw6udjhewjy" path="res://_Scripts/Characters/NPCs/Dialogue/npc_dialogue.gd" id="3_xpevp"]
-[ext_resource type="Script" uid="uid://bp4dyuu8y01eb" path="res://_Scripts/Characters/NPCs/Dialogue/dialogue_data.gd" id="4_ip64u"]
+[ext_resource type="Script" uid="uid://blxw6udjhewjy" path="res://_Scripts/Characters/NPCs/Conversations/npc_conversation.gd" id="3_xpevp"]
+[ext_resource type="Script" uid="uid://bp4dyuu8y01eb" path="res://_Scripts/Characters/NPCs/Conversations/conversation_data.gd" id="4_ip64u"]
 [ext_resource type="Resource" uid="uid://djbiiwnuacml1" path="res://Resources/Characters/NPCs/Testing/test_character.tres" id="5_x2lb7"]
 [ext_resource type="Script" uid="uid://5x167bve2yks" path="res://_Scripts/UI/Popups/DiscussionPopup/discussion_data.gd" id="7_7slap"]
 
@@ -17,7 +17,7 @@ curve = SubResource("Curve_ip64u")
 
 [sub_resource type="Resource" id="Resource_x2lb7"]
 script = ExtResource("4_ip64u")
-dialogue_text = "a"
+dialogue_text = "aaaaaaaaaaaaaaaaa"
 character = ExtResource("5_x2lb7")
 metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
 
@@ -120,6 +120,7 @@ offset_left = 1320.0
 offset_top = 744.0
 offset_right = 1440.0
 offset_bottom = 928.0
+button_mask = 3
 texture_normal = SubResource("CurveTexture_x2lb7")
 texture_pressed = SubResource("CurveTexture_x2lb7")
 texture_hover = SubResource("CurveTexture_x2lb7")
