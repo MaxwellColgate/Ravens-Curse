@@ -91,13 +91,17 @@ offset_bottom = 295.0
 texture = ExtResource("4_mxajb")
 expand_mode = 1
 
-[node name="ConversationScene" type="Control" parent="." node_paths=PackedStringArray("dialogue_text_box", "name_text_box")]
+[node name="ConversationScene" type="Control" parent="." node_paths=PackedStringArray("character_scene", "character_marks", "dialogue_text_box", "name_text_box")]
 visible = false
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
 script = ExtResource("5_hkesi")
+character_move_speed = 0.0
+character_scene = NodePath("Characters")
+character_marks = [NodePath("LeftCharacterMark"), NodePath("RightCharacterMark")]
+character_spawn_offest = 0.0
 dialogue_text_box = NodePath("DialogueBox/DialogueText")
 name_text_box = NodePath("DialogueBox/NameBox/NameText")
 
@@ -112,18 +116,22 @@ color = Color(0.0823529, 0.0823529, 0.0823529, 0.721569)
 
 [node name="LeftCharacterMark" type="Control" parent="ConversationScene"]
 anchors_preset = 0
-offset_left = 520.0
-offset_top = 768.0
-offset_right = 520.0
-offset_bottom = 768.0
+offset_left = 448.0
+offset_top = 640.0
+offset_right = 448.0
+offset_bottom = 640.0
 mouse_filter = 2
 
 [node name="RightCharacterMark" type="Control" parent="ConversationScene"]
 anchors_preset = 0
-offset_left = 1408.0
-offset_top = 768.0
-offset_right = 1408.0
-offset_bottom = 768.0
+offset_left = 1472.0
+offset_top = 640.0
+offset_right = 1472.0
+offset_bottom = 640.0
+mouse_filter = 2
+
+[node name="Characters" type="Control" parent="ConversationScene"]
+anchors_preset = 0
 mouse_filter = 2
 
 [node name="DialogueBox" type="TextureRect" parent="ConversationScene"]

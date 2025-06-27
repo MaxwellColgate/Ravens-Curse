@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxsmhtaoiidoy"]
+[gd_scene load_steps=18 format=3 uid="uid://cxsmhtaoiidoy"]
 
 [ext_resource type="Texture2D" uid="uid://d3ld5nm8s2drj" path="res://_Assets/Textures/Backgrounds/TestBackground.png" id="1_bdlmj"]
 [ext_resource type="PackedScene" uid="uid://dmal3tjknb66o" path="res://_Scenes/Interactables/HintCoins/hint_coin_trigger.tscn" id="2_v7pjr"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://blxw6udjhewjy" path="res://_Scripts/Characters/NPCs/Conversations/npc_conversation.gd" id="3_xpevp"]
 [ext_resource type="Script" uid="uid://bp4dyuu8y01eb" path="res://_Scripts/Characters/NPCs/Conversations/conversation_data.gd" id="4_ip64u"]
 [ext_resource type="Resource" uid="uid://djbiiwnuacml1" path="res://Resources/Characters/NPCs/Testing/test_character.tres" id="5_x2lb7"]
+[ext_resource type="Resource" uid="uid://d3lq0vbel658n" path="res://Resources/Characters/NPCs/Testing/test_right_character.tres" id="6_gj6ly"]
 [ext_resource type="Script" uid="uid://5x167bve2yks" path="res://_Scripts/UI/Popups/DiscussionPopup/discussion_data.gd" id="7_7slap"]
 
 [sub_resource type="Curve" id="Curve_ip64u"]
@@ -15,16 +16,40 @@ point_count = 1
 [sub_resource type="CurveTexture" id="CurveTexture_x2lb7"]
 curve = SubResource("Curve_ip64u")
 
+[sub_resource type="Resource" id="Resource_nsgk4"]
+script = ExtResource("4_ip64u")
+action = 1
+character = ExtResource("5_x2lb7")
+enter_left = true
+dialogue_text = ""
+character_pose = 0
+metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
+
+[sub_resource type="Resource" id="Resource_0yi25"]
+script = ExtResource("4_ip64u")
+action = 1
+character = ExtResource("6_gj6ly")
+enter_left = false
+dialogue_text = ""
+character_pose = 0
+metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
+
 [sub_resource type="Resource" id="Resource_x2lb7"]
 script = ExtResource("4_ip64u")
-dialogue_text = "aaaaaaaaaaaaaaaaa"
+action = 0
 character = ExtResource("5_x2lb7")
+enter_left = true
+dialogue_text = "aaaaaaaaaaaaaaaaa"
+character_pose = 0
 metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
 
 [sub_resource type="Resource" id="Resource_7slap"]
 script = ExtResource("4_ip64u")
-dialogue_text = "testinggg g"
+action = 0
 character = ExtResource("5_x2lb7")
+enter_left = true
+dialogue_text = "testinggg g"
+character_pose = 0
 metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
 
 [sub_resource type="Resource" id="Resource_gj6ly"]
@@ -129,7 +154,7 @@ texture_focused = SubResource("CurveTexture_x2lb7")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_xpevp")
-dialogue = Array[ExtResource("4_ip64u")]([SubResource("Resource_x2lb7"), SubResource("Resource_7slap")])
+dialogue = Array[ExtResource("4_ip64u")]([SubResource("Resource_nsgk4"), SubResource("Resource_0yi25"), SubResource("Resource_x2lb7"), SubResource("Resource_7slap")])
 
 [node name="Discussions" type="Control" parent="Interactables"]
 layout_mode = 1
