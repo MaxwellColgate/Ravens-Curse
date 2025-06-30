@@ -20,7 +20,6 @@ curve = SubResource("Curve_ip64u")
 script = ExtResource("4_ip64u")
 action = 1
 character = ExtResource("5_x2lb7")
-character_pose = "default"
 enter_left = true
 dialogue_text = ""
 metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
@@ -29,27 +28,24 @@ metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
 script = ExtResource("4_ip64u")
 action = 1
 character = ExtResource("6_gj6ly")
-character_pose = "default"
 enter_left = false
 dialogue_text = ""
 metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
 
-[sub_resource type="Resource" id="Resource_gblo5"]
+[sub_resource type="Resource" id="Resource_x2lb7"]
 script = ExtResource("4_ip64u")
 action = 0
 character = ExtResource("5_x2lb7")
-character_pose = "default"
 enter_left = true
-dialogue_text = "aaaaaaaaaaaaa a a a  aa"
+dialogue_text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
 
-[sub_resource type="Resource" id="Resource_7gnmh"]
+[sub_resource type="Resource" id="Resource_7slap"]
 script = ExtResource("4_ip64u")
 action = 0
 character = ExtResource("6_gj6ly")
-character_pose = "default"
 enter_left = true
-dialogue_text = "Testinggggg"
+dialogue_text = "testinggg g"
 metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
 
 [sub_resource type="Resource" id="Resource_gj6ly"]
@@ -159,7 +155,7 @@ texture_focused = SubResource("CurveTexture_x2lb7")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("3_xpevp")
-dialogue = Array[ExtResource("4_ip64u")]([SubResource("Resource_nsgk4"), SubResource("Resource_0yi25"), SubResource("Resource_gblo5"), SubResource("Resource_7gnmh")])
+dialogue = Array[ExtResource("4_ip64u")]([SubResource("Resource_nsgk4"), SubResource("Resource_0yi25"), SubResource("Resource_x2lb7"), SubResource("Resource_7slap")])
 
 [node name="Discussions" type="Control" parent="Interactables"]
 layout_mode = 1

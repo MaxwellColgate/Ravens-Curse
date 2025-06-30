@@ -1,3 +1,4 @@
+@tool
 extends Resource
 class_name ConversationData
 
@@ -19,6 +20,9 @@ enum possible_actions
 @export var character: CharacterData
 
 
+# The character's current pose
+@export var character_pose = "default"
+
 # Data assosciated with introducing a new character
 @export_group("Introduction")
 
@@ -31,13 +35,3 @@ enum possible_actions
 
 # The text in this line of dialogue
 @export var dialogue_text: String
-
-# The possible poses a character can be in
-enum available_posess
-{
-	IDLE,
-	SHOCKED,
-}
-
-# The character's current pose
-@export var character_pose: available_posess

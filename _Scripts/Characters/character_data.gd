@@ -10,20 +10,22 @@ class_name CharacterData
 
 @export_group("Assets")
 
-
 @export_subgroup("Dialogue")
 
-#The character's default idle sprite
-@export var default_idle: Texture2D
+# The dialogue poses a character can have
+@export var available_poses: Dictionary[String, Array] = {}
 
-#The character's default talking sprite
-@export var default_talking: Texture2D
-
-#The character's shocked idle sprite
-@export var shocked_idle: Texture2D
-
-#The character's shocked talking sprite
-@export var shocked_talking: Texture2D
+# Returns the correct character sprite for a requested line of dialogue
+func get_character_pose(pose: String, is_talking: bool) -> Texture2D:
+	var correct_pose: Texture2D
+	
+	# Finds the requested sprite's index in each sprite array,
+	# at the moment just a 0 or 1 for if the character is talking or not
+	var requested_sprite_index = 0
+	if is_talking:
+		requested_sprite_index = 1
+	
+	return available_poses.get(pose)[requested_sprite_index]
 
 
 @export_subgroup("Discussion")
