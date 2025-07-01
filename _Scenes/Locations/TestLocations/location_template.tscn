@@ -1,56 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxsmhtaoiidoy"]
+[gd_scene load_steps=10 format=3 uid="uid://cxsmhtaoiidoy"]
 
 [ext_resource type="Texture2D" uid="uid://d3ld5nm8s2drj" path="res://_Assets/Textures/Backgrounds/TestBackground.png" id="1_bdlmj"]
 [ext_resource type="PackedScene" uid="uid://dmal3tjknb66o" path="res://_Scenes/Interactables/HintCoins/hint_coin_trigger.tscn" id="2_v7pjr"]
 [ext_resource type="PackedScene" uid="uid://cqldb76gnrurp" path="res://_Scenes/Interactables/Discussions/discussion_popup_trigger.tscn" id="3_cfk1g"]
-[ext_resource type="Script" uid="uid://blxw6udjhewjy" path="res://_Scripts/Characters/NPCs/Conversations/npc_conversation.gd" id="3_xpevp"]
-[ext_resource type="Script" uid="uid://bp4dyuu8y01eb" path="res://_Scripts/Characters/NPCs/Conversations/conversation_data.gd" id="4_ip64u"]
-[ext_resource type="Resource" uid="uid://djbiiwnuacml1" path="res://Resources/Characters/NPCs/Testing/test_character.tres" id="5_x2lb7"]
-[ext_resource type="Resource" uid="uid://d3lq0vbel658n" path="res://Resources/Characters/NPCs/Testing/test_right_character.tres" id="6_gj6ly"]
+[ext_resource type="PackedScene" uid="uid://buas56xukkoep" path="res://_Scenes/Interactables/Characters/base_npc.tscn" id="3_x2lb7"]
+[ext_resource type="Resource" uid="uid://djbiiwnuacml1" path="res://Resources/Characters/NPCs/Testing/TestLayton.tres" id="5_x2lb7"]
 [ext_resource type="Script" uid="uid://5x167bve2yks" path="res://_Scripts/UI/Popups/DiscussionPopup/discussion_data.gd" id="7_7slap"]
-
-[sub_resource type="Curve" id="Curve_ip64u"]
-_data = [Vector2(0.535104, 0.821479), 0.0, 0.0, 0, 0]
-point_count = 1
-
-[sub_resource type="CurveTexture" id="CurveTexture_x2lb7"]
-curve = SubResource("Curve_ip64u")
-
-[sub_resource type="Resource" id="Resource_nsgk4"]
-script = ExtResource("4_ip64u")
-action = 1
-character = ExtResource("5_x2lb7")
-character_pose = "default"
-enter_left = true
-dialogue_text = ""
-metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
-
-[sub_resource type="Resource" id="Resource_0yi25"]
-script = ExtResource("4_ip64u")
-action = 1
-character = ExtResource("6_gj6ly")
-character_pose = "default"
-enter_left = false
-dialogue_text = ""
-metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
-
-[sub_resource type="Resource" id="Resource_gblo5"]
-script = ExtResource("4_ip64u")
-action = 0
-character = ExtResource("5_x2lb7")
-character_pose = "default"
-enter_left = true
-dialogue_text = "aaaaaaaaaaaaa a a a  aa"
-metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
-
-[sub_resource type="Resource" id="Resource_7gnmh"]
-script = ExtResource("4_ip64u")
-action = 0
-character = ExtResource("6_gj6ly")
-character_pose = "default"
-enter_left = true
-dialogue_text = "Testinggggg"
-metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
 
 [sub_resource type="Resource" id="Resource_gj6ly"]
 script = ExtResource("7_7slap")
@@ -139,27 +94,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="BaseNPC" type="TextureButton" parent="Interactables/NPCs"]
+[node name="BaseNPC" parent="Interactables/NPCs" instance=ExtResource("3_x2lb7")]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.695
-anchor_top = 0.649
-anchor_right = 0.77
-anchor_bottom = 0.853
-offset_left = -0.00012207
-offset_top = -0.100037
-offset_right = -0.00012207
-offset_bottom = 0.299988
-button_mask = 3
-texture_normal = SubResource("CurveTexture_x2lb7")
-texture_pressed = SubResource("CurveTexture_x2lb7")
-texture_hover = SubResource("CurveTexture_x2lb7")
-texture_disabled = SubResource("CurveTexture_x2lb7")
-texture_focused = SubResource("CurveTexture_x2lb7")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("3_xpevp")
-dialogue = Array[ExtResource("4_ip64u")]([SubResource("Resource_nsgk4"), SubResource("Resource_0yi25"), SubResource("Resource_gblo5"), SubResource("Resource_7gnmh")])
+anchor_left = 0.17
+anchor_top = 0.64
+anchor_right = 0.245
+anchor_bottom = 0.907
+offset_top = -6.10352e-05
+offset_right = 0.0
+offset_bottom = 4.69995
 
 [node name="Discussions" type="Control" parent="Interactables"]
 layout_mode = 1
@@ -180,5 +123,3 @@ offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
 dialogue = Array[ExtResource("7_7slap")]([SubResource("Resource_gj6ly"), SubResource("Resource_jt113"), SubResource("Resource_jvs77")])
-
-[connection signal="pressed" from="Interactables/NPCs/BaseNPC" to="Interactables/NPCs/BaseNPC" method="_on_pressed"]

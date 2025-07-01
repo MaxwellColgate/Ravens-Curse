@@ -16,8 +16,7 @@ class_name CharacterData
 @export var available_poses: Dictionary[String, Array] = {}
 
 # Returns the correct character sprite for a requested line of dialogue
-func get_character_pose(pose: String, is_talking: bool) -> Texture2D:
-	var correct_pose: Texture2D
+func get_character_pose(pose: String, is_talking: bool):
 	
 	# Finds the requested sprite's index in each sprite array,
 	# at the moment just a 0 or 1 for if the character is talking or not

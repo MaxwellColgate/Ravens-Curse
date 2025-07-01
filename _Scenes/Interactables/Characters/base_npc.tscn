@@ -1,0 +1,82 @@
+[gd_scene load_steps=15 format=3 uid="uid://buas56xukkoep"]
+
+[ext_resource type="Texture2D" uid="uid://b10ae3bpgtrfm" path="res://_Assets/Textures/Characters/NPCs/Chelmey/Map/Default/ChelmeyDefaultMap0.png" id="1_fbej0"]
+[ext_resource type="Texture2D" uid="uid://c4fwn6c1giyqt" path="res://_Assets/Textures/Characters/NPCs/Chelmey/Map/Default/ChelmeyDefaultMap1.png" id="2_p1coe"]
+[ext_resource type="Texture2D" uid="uid://xhcojxhwik5l" path="res://_Assets/Textures/Characters/NPCs/Chelmey/Map/Default/ChelmeyDefaultMap2.png" id="3_poqyk"]
+[ext_resource type="Script" uid="uid://blxw6udjhewjy" path="res://_Scripts/Characters/NPCs/Conversations/npc_conversation.gd" id="4_utsqu"]
+[ext_resource type="Script" uid="uid://bp4dyuu8y01eb" path="res://_Scripts/Characters/NPCs/Conversations/conversation_data.gd" id="5_5pol1"]
+[ext_resource type="Resource" uid="uid://djbiiwnuacml1" path="res://Resources/Characters/NPCs/Testing/TestLayton.tres" id="6_thgn0"]
+[ext_resource type="Resource" uid="uid://d3lq0vbel658n" path="res://Resources/Characters/NPCs/Testing/TestChelmey.tres" id="7_6c3fv"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_gj6ly"]
+frames = 3
+frame_0/texture = ExtResource("1_fbej0")
+frame_0/duration = 2.0
+frame_1/texture = ExtResource("2_p1coe")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_poqyk")
+frame_2/duration = 1.0
+
+[sub_resource type="Curve" id="Curve_ip64u"]
+_data = [Vector2(0.535104, 0.821479), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_x2lb7"]
+curve = SubResource("Curve_ip64u")
+
+[sub_resource type="Resource" id="Resource_nsgk4"]
+script = ExtResource("5_5pol1")
+action = 1
+character = ExtResource("6_thgn0")
+character_pose = "default"
+enter_left = true
+dialogue_text = ""
+metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
+
+[sub_resource type="Resource" id="Resource_0yi25"]
+script = ExtResource("5_5pol1")
+action = 1
+character = ExtResource("7_6c3fv")
+character_pose = "default"
+enter_left = false
+dialogue_text = ""
+metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
+
+[sub_resource type="Resource" id="Resource_gblo5"]
+script = ExtResource("5_5pol1")
+action = 0
+character = ExtResource("6_thgn0")
+character_pose = "default"
+enter_left = true
+dialogue_text = "aaaaaaaaaaaaa a a a  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
+
+[sub_resource type="Resource" id="Resource_7gnmh"]
+script = ExtResource("5_5pol1")
+action = 0
+character = ExtResource("7_6c3fv")
+character_pose = "default"
+enter_left = true
+dialogue_text = "Wow, what a brilliant test line. I'm sure this will become good dialogue eventually but for now it just needs to be a long string of text"
+metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
+
+[node name="BaseNPC" type="TextureButton"]
+anchors_preset = -1
+anchor_left = 0.695
+anchor_top = 0.622
+anchor_right = 0.76
+anchor_bottom = 0.853
+offset_top = 0.19989
+offset_right = -0.00012207
+offset_bottom = 0.299927
+button_mask = 3
+texture_normal = SubResource("AnimatedTexture_gj6ly")
+texture_pressed = SubResource("AnimatedTexture_gj6ly")
+texture_hover = SubResource("AnimatedTexture_gj6ly")
+texture_disabled = SubResource("CurveTexture_x2lb7")
+texture_focused = SubResource("AnimatedTexture_gj6ly")
+stretch_mode = 0
+script = ExtResource("4_utsqu")
+dialogue = Array[ExtResource("5_5pol1")]([SubResource("Resource_nsgk4"), SubResource("Resource_0yi25"), SubResource("Resource_gblo5"), SubResource("Resource_7gnmh")])
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

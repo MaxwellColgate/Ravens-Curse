@@ -24,13 +24,16 @@ var current_line = 0
 @export var character_scene: Control
 
 # The character prefab
-@export var character_pref = load("res://_Scenes/Characters/Conversations/CharacterPref.tscn")
+@export var character_pref = load("res://_Scenes/UI/Conversations/CharacterPref.tscn")
 
 # The left and right position that characters aim for when entering screen
 @export var character_marks: Array[Control]
 
 # How far off screen characters spawn before moving on screen
 @export var character_spawn_offest: float = 0
+
+# How many times larger then their normal height should characters be scaled too
+@export var character_scale = 3
 
 
 @export_group("Speaking")
@@ -106,7 +109,12 @@ func introduce_character(character: CharacterData, pose: String, spawn_left: boo
 	character_scene.add_child(new_character)
 	characters[character] = new_character
 	
-	new_character.get_node("CharacterTexture").texture = character.get_character_pose(pose, spawn_left)
+	var character_texture = new_character.get_node("CharacterTexture")
+	character_texture.texture = character.get_character_pose(pose, spawn_left)
+	
+	# Scale character up based on their height so that they all look right
+	character_texture.size.y = character_texture.texture.get_height() * character_scale
+	character_texture.position.y = -character_texture.texture.get_height() * character_scale
 	
 	# The spot this character should start
 	var spawn_pos: Vector2
@@ -121,7 +129,7 @@ func introduce_character(character: CharacterData, pose: String, spawn_left: boo
 		target_pos = character_marks[0].position
 	else:
 		spawn_pos.x = get_viewport().get_visible_rect().size.x + character_spawn_offest
-		target_pos = Vector2(character_marks[1].position.x - new_character.get_node("CharacterTexture").texture.get_width(),
+		target_pos = Vector2(character_marks[1].position.x - character_texture.texture.get_width(),
 				character_marks[1].position.y)
 	new_character.position = spawn_pos
 	
@@ -160,7 +168,6 @@ func play_line(line: ConversationData):
 func end_conversation():
 	conversation.clear()
 	for character in characters:
-		print(characters[character])
 		characters[character].queue_free()
 	current_line = 0
 	self.visible = false

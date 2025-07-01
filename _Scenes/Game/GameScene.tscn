@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://de14c8p2wem24" path="res://_Scripts/UI/Popups/HintCoinCollect/hint_coin_notif_manager.gd" id="3_qbgnm"]
 [ext_resource type="Texture2D" uid="uid://c4qfp8qtiefyi" path="res://_Assets/Textures/UI/HintCoins/HintCoin.png" id="4_mxajb"]
 [ext_resource type="Script" uid="uid://ccrvrit8ycsf3" path="res://_Scripts/Management/NPCs/Conversations/conversation_manager.gd" id="5_hkesi"]
-[ext_resource type="PackedScene" uid="uid://dcxlpcds10f1a" path="res://_Scenes/Characters/Conversations/CharacterPref.tscn" id="6_fu8qn"]
+[ext_resource type="PackedScene" uid="uid://dcxlpcds10f1a" path="res://_Scenes/UI/Conversations/CharacterPref.tscn" id="6_fu8qn"]
 
 [sub_resource type="Curve" id="Curve_wdvni"]
 _data = [Vector2(0.667904, 0.716823), 0.0, 0.0, 0, 0]
@@ -52,26 +52,40 @@ mouse_filter = 2
 layout_mode = 1
 
 [node name="UIScenes" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
 [node name="DiscussionPopup" parent="UIScenes" instance=ExtResource("2_fu8qn")]
 visible = false
 layout_mode = 1
 
-[node name="HintCoinNotif" type="TextureRect" parent="UIScenes"]
+[node name="HintCointNotif" type="Control" parent="UIScenes"]
 visible = false
-layout_mode = 0
-offset_left = 552.0
-offset_top = 385.0
-offset_right = 1341.0
-offset_bottom = 696.0
-texture = SubResource("CurveTexture_wdvni")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("3_qbgnm")
 
-[node name="CollectionText" type="Label" parent="UIScenes/HintCoinNotif"]
+[node name="HintCoingBackground" type="TextureRect" parent="UIScenes/HintCointNotif"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.996
+offset_left = 432.0
+offset_top = 320.0
+offset_right = -379.0
+offset_bottom = -256.4
+texture = SubResource("CurveTexture_wdvni")
+
+[node name="CollectionText" type="Label" parent="UIScenes/HintCointNotif/HintCoingBackground"]
 layout_mode = 0
 offset_left = 344.0
 offset_top = 63.0
@@ -83,7 +97,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="CoinImage" type="TextureRect" parent="UIScenes/HintCoinNotif"]
+[node name="CoinImage" type="TextureRect" parent="UIScenes/HintCointNotif/HintCoingBackground"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 15.0
@@ -98,8 +112,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 320.0
-offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -117,34 +129,28 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -320.0
-offset_bottom = -180.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0823529, 0.0823529, 0.0823529, 0.721569)
 
 [node name="LeftCharacterMark" type="Control" parent="ConversationScene"]
 layout_mode = 1
-anchor_left = 0.167
-anchor_top = 0.415
-anchor_right = 0.167
-anchor_bottom = 0.415
-offset_left = -0.640015
-offset_top = -0.200012
-offset_right = -0.640015
-offset_bottom = -0.200012
+anchor_left = 0.2
+anchor_top = 0.782
+anchor_right = 0.2
+anchor_bottom = 0.782
+offset_top = 0.199951
+offset_bottom = 0.199951
 mouse_filter = 2
 
 [node name="RightCharacterMark" type="Control" parent="ConversationScene"]
 layout_mode = 1
-anchor_left = 0.667
-anchor_top = 0.415
-anchor_right = 0.667
-anchor_bottom = 0.415
-offset_left = -0.640137
-offset_top = -0.200012
-offset_right = -0.640137
-offset_bottom = -0.200012
+anchor_left = 0.76
+anchor_top = 0.782
+anchor_right = 0.76
+anchor_bottom = 0.782
+offset_top = 0.199951
+offset_bottom = 0.199951
 mouse_filter = 2
 
 [node name="Characters" type="Control" parent="ConversationScene"]
@@ -154,12 +160,11 @@ mouse_filter = 2
 [node name="DialogueBox" type="TextureRect" parent="ConversationScene"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.548
-anchor_right = 0.833
-anchor_bottom = 0.833
-offset_top = 0.159973
-offset_right = 0.639893
-offset_bottom = 4.35992
+anchor_top = 0.711
+anchor_right = 1.0
+anchor_bottom = 0.996
+offset_top = 0.0999756
+offset_bottom = 4.59998
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_fu8qn")
@@ -172,7 +177,7 @@ anchor_bottom = 0.987
 offset_left = 64.0
 offset_top = 24.0
 offset_right = -64.0
-offset_bottom = -59.944
+offset_bottom = -25.607
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.0096728, 0.0119961, 0.00860582, 1)
@@ -184,11 +189,10 @@ scroll_active = false
 [node name="NameBox" type="TextureRect" parent="ConversationScene/DialogueBox"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.013
-anchor_right = 0.173
-offset_left = -0.640001
+anchor_left = 0.01
+anchor_right = 0.175
 offset_top = -64.0
-offset_right = -30.08
+offset_right = -3.05176e-05
 texture = SubResource("GradientTexture1D_qbgnm")
 
 [node name="NameText" type="RichTextLabel" parent="ConversationScene/DialogueBox/NameBox"]
@@ -196,13 +200,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
+offset_left = 8.0
 offset_top = 8.0
-offset_right = -16.0
+offset_right = -8.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 25
 text = "Test"
 fit_content = true
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1

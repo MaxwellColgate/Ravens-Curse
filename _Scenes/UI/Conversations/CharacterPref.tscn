@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcxlpcds10f1a"]
+
+[ext_resource type="Script" uid="uid://ciqstm6pjrhdw" path="res://_Scripts/Management/NPCs/Conversations/move_character.gd" id="1_ndkij"]
+[ext_resource type="Texture2D" uid="uid://bwcg6ed6ocyag" path="res://_Assets/Textures/Characters/MainCharacters/Layton/Conversations/Default/LaytonDefaultIdle.png" id="2_a8v4u"]
+
+[node name="CharacterScenePref" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ndkij")
+character_move_speed = 0.01
+
+[node name="CharacterTexture" type="TextureRect" parent="."]
+offset_top = -384.0
+offset_right = 256.0
+texture = ExtResource("2_a8v4u")
+expand_mode = 1
+stretch_mode = 5
