@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dwawjjusg6gs5"]
 
-[ext_resource type="Script" uid="uid://33k0du5cbnqg" path="res://_Scripts/UI/Popups/DiscussionPopup/discussion_popup_manager.gd" id="1_wy331"]
+[ext_resource type="Script" uid="uid://33k0du5cbnqg" path="res://_Scripts/UI/Interactables/DiscussionPopup/discussion_popup_manager.gd" id="1_wy331"]
 
 [sub_resource type="Curve" id="Curve_5pmn0"]
 _data = [Vector2(0.315534, 0.651685), 0.0, 0.0, 0, 0]

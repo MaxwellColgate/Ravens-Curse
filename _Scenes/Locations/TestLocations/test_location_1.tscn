@@ -1,0 +1,139 @@
+[gd_scene load_steps=10 format=3 uid="uid://cju011eg7l8py"]
+
+[ext_resource type="Texture2D" uid="uid://dkyeayoil22x6" path="res://_Assets/Textures/Backgrounds/Testing/TestBackground1.jpeg" id="1_utpws"]
+[ext_resource type="PackedScene" uid="uid://dmal3tjknb66o" path="res://_Scenes/Interactables/HintCoins/hint_coin_trigger.tscn" id="2_rmx4d"]
+[ext_resource type="PackedScene" uid="uid://cqldb76gnrurp" path="res://_Scenes/Interactables/Discussions/discussion_popup_trigger.tscn" id="4_3nt1j"]
+[ext_resource type="Script" uid="uid://5x167bve2yks" path="res://_Scripts/UI/Interactables/DiscussionPopup/discussion_data.gd" id="5_s1eiq"]
+[ext_resource type="Resource" uid="uid://djbiiwnuacml1" path="res://Resources/Characters/NPCs/Testing/TestLayton.tres" id="6_aorl0"]
+[ext_resource type="PackedScene" uid="uid://hqftoaafddc5" path="res://_Scenes/UI/Movement/movement_arrow.tscn" id="7_lm7iw"]
+
+[sub_resource type="Resource" id="Resource_gj6ly"]
+script = ExtResource("5_s1eiq")
+profile_texture = ExtResource("6_aorl0")
+dialogue_text = "Wow, what a cool window!"
+metadata/_custom_type_script = "uid://5x167bve2yks"
+
+[sub_resource type="Resource" id="Resource_jt113"]
+script = ExtResource("5_s1eiq")
+profile_texture = ExtResource("6_aorl0")
+dialogue_text = "That's crazy"
+metadata/_custom_type_script = "uid://5x167bve2yks"
+
+[sub_resource type="Resource" id="Resource_jvs77"]
+script = ExtResource("5_s1eiq")
+profile_texture = ExtResource("6_aorl0")
+dialogue_text = "I can't think of a third line xD"
+metadata/_custom_type_script = "uid://5x167bve2yks"
+
+[node name="LocationTemplate" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackgroundImage" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_utpws")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Interactables" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HintCoins" type="Control" parent="Interactables"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LampCoinTrigger" parent="Interactables/HintCoins" instance=ExtResource("2_rmx4d")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4623
+anchor_top = 0.0888889
+anchor_right = 0.5354
+anchor_bottom = 0.213511
+offset_left = 0.319946
+offset_top = -2.0
+offset_right = -0.640015
+offset_bottom = -0.160004
+metadata/_edit_use_anchors_ = true
+
+[node name="NPCs" type="Control" parent="Interactables"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Discussions" type="Control" parent="Interactables"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DiscussionPopupTrigger" parent="Interactables/Discussions" instance=ExtResource("4_3nt1j")]
+layout_mode = 1
+anchor_left = 0.191667
+anchor_top = 0.22963
+anchor_bottom = 0.355556
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+dialogue = Array[ExtResource("5_s1eiq")]([SubResource("Resource_gj6ly"), SubResource("Resource_jt113"), SubResource("Resource_jvs77")])
+
+[node name="Movement" type="Control" parent="Interactables"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MovementArrow" parent="Interactables/Movement" instance=ExtResource("7_lm7iw")]
+visible = false
+layout_mode = 1
+anchor_left = 0.454
+anchor_top = 0.862
+anchor_right = 0.535
+anchor_bottom = 0.951
+offset_left = -0.400024
+offset_top = 0.199951
+offset_right = -6.10352e-05
+offset_bottom = 0.0999756
+grow_horizontal = 2
+grow_vertical = 2
+target_scene_path = "res://_Scenes/Locations/TestLocations/test_location.tscn"

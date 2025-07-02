@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 GlobalUIScenes="*res://_Scripts/UI/GlobalUIScenes.gd"
 ConversationStarter="*res://_Scripts/Management/NPCs/Conversations/conversation_starter.gd"
+MovementManager="*res://_Scripts/Management/Movement/movement_manager.gd"
 
 [display]
 

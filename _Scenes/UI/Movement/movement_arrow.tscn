@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://hqftoaafddc5"]
+
+[ext_resource type="Script" uid="uid://drlarftb0isii" path="res://_Scripts/UI/Movement/movement_arrow_trigger.gd" id="1_u4q3y"]
+
+[sub_resource type="Curve" id="Curve_x2lb7"]
+_data = [Vector2(0.752542, 0.680858), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_7slap"]
+curve = SubResource("Curve_x2lb7")
+
+[node name="MovementArrow" type="TextureButton"]
+anchors_preset = -1
+anchor_left = 0.72
+anchor_top = 0.756
+anchor_right = 0.755
+anchor_bottom = 0.818
+offset_top = -0.400024
+offset_right = -0.00012207
+offset_bottom = -0.200012
+texture_normal = SubResource("CurveTexture_7slap")
+texture_pressed = SubResource("CurveTexture_7slap")
+texture_hover = SubResource("CurveTexture_7slap")
+texture_disabled = SubResource("CurveTexture_7slap")
+texture_focused = SubResource("CurveTexture_7slap")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_u4q3y")
+
+[connection signal="pressed" from="." to="." method="_on_movement_arrow_trigger_pressed"]
