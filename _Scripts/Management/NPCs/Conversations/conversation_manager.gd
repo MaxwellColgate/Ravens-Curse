@@ -3,20 +3,11 @@ extends Node
 ## Plays a conversation between characters
 
 
-# The current conversation
-var conversation: Array[ConversationData]
-
-# The character's currently on screen
-var characters = {} #CharacterData: $"res://_Scenes/Characters/Conversations/CharacterPref.tscn"
-
-# The current line of dialogue
-var current_line = 0
+# The conversation animation player
+@export var convo_transitions: AnimationPlayer
 
 
 @export_group("Movement")
-
-# How fast characters move when entering/exiting the scene
-@export var character_move_speed: float = 0.1
 
 @export_subgroup("Introduction")
 
@@ -50,6 +41,16 @@ var current_line = 0
 # Is the current line being played?
 var writing_line = false
 
+# The current conversation
+var conversation: Array[ConversationData]
+
+# The character's currently on screen
+var characters = {} #CharacterData: $"res://_Scenes/Characters/Conversations/CharacterPref.tscn"
+
+# The current line of dialogue
+var current_line = 0
+
+
 # Notify conversation_starter that this is the manager so that anyone can start a convo
 func _ready() -> void:
 	ConversationStarter.conversation_manager = self
@@ -80,7 +81,7 @@ func _input(event):
 # begin a new conversation, conversation data is passed in from source (usually an NPC)
 func begin_conversation(dialogue: Array[ConversationData]):
 	self.visible = true
-	
+	convo_transitions.play("convo_fade_in")
 	conversation.append_array(dialogue)
 	iterate_dialogue()
 
@@ -134,7 +135,7 @@ func introduce_character(character: CharacterData, pose: String, spawn_left: boo
 	new_character.position = spawn_pos
 	
 	# Notify character to start moving towards their mark
-	new_character.start_moving(target_pos)
+	new_character.enter_scene(target_pos)
 	iterate_dialogue()
 
 
@@ -168,6 +169,6 @@ func play_line(line: ConversationData):
 func end_conversation():
 	conversation.clear()
 	for character in characters:
-		characters[character].queue_free()
+		characters[character].exit_scene()
 	current_line = 0
-	self.visible = false
+	convo_transitions.play("convo_fade_out")
