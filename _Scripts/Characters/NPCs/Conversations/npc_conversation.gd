@@ -15,6 +15,8 @@ extends Node
 
 # When NPC is clicked in, start conversation
 func _on_pressed() -> void:
+	ConversationStarter.disable_input()
+	
 	# If this conversation will lead to a puzzle, play the puzzle notfier anim.
 	# Otherwise, play the normal conversation notifier anim
 	if is_puzzle_conversation:

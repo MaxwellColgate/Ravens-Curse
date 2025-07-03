@@ -60,6 +60,9 @@ var right_characters: Array[Object]
 # The current line of dialogue
 var current_line = 0
 
+# Is the conversation ready to begin? (Animations are done, etc.)
+var conversation_ready = false
+
 
 # Notify conversation_starter that this is the manager so that anyone can start a convo
 func _ready() -> void:
@@ -68,7 +71,7 @@ func _ready() -> void:
 # Iterates through dialogue when the player clicks
 func _input(event):
 	# If conversation is not active, return
-	if not self.visible:
+	if not conversation_ready:
 		return
 	
 	# If player isn't clicking mouse, return
@@ -87,12 +90,11 @@ func _input(event):
 	iterate_dialogue()
 
 
-
 # begin a new conversation, conversation data is passed in from source (usually an NPC)
 func begin_conversation(dialogue: Array[ConversationData]):
-	self.visible = true
 	convo_transitions.play("convo_fade_in")
 	conversation.append_array(dialogue)
+	conversation_ready = true
 	iterate_dialogue()
 
 # Checks what should happen on this line of dialogue, then call that state
@@ -196,6 +198,7 @@ func play_line(line: ConversationData):
 
 # Clear out all the data assosciated with this conversation and close the scene
 func end_conversation():
+	conversation_ready = false
 	conversation.clear()
 	left_characters.clear()
 	right_characters.clear()
@@ -203,5 +206,6 @@ func end_conversation():
 	
 	for character in characters:
 		characters[character].exit_scene()
+	characters.clear()
 	
 	convo_transitions.play("convo_fade_out")
