@@ -153,7 +153,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="BaseNPC" parent="Interactables/NPCs" instance=ExtResource("3_cbe4h")]
+[node name="Chelmey" parent="Interactables/NPCs" instance=ExtResource("3_cbe4h")]
 layout_mode = 1
 anchor_left = 0.17
 anchor_top = 0.64
@@ -174,7 +174,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="DiscussionPopupTrigger" parent="Interactables/Discussions" instance=ExtResource("4_t4ql0")]
+[node name="WindowTrigger" parent="Interactables/Discussions" instance=ExtResource("4_t4ql0")]
 layout_mode = 1
 anchor_left = 0.191667
 anchor_top = 0.22963
@@ -194,7 +194,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="MovementArrow" parent="Interactables/Movement" instance=ExtResource("7_u1o1p")]
+[node name="CourthouseArrow" parent="Interactables/Movement" instance=ExtResource("7_u1o1p")]
 visible = false
 layout_mode = 1
 anchor_left = 0.715

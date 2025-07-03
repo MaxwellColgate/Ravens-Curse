@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://buas56xukkoep"]
+[gd_scene load_steps=23 format=3 uid="uid://buas56xukkoep"]
 
 [ext_resource type="Texture2D" uid="uid://b10ae3bpgtrfm" path="res://_Assets/Textures/Characters/NPCs/PoliceOfficers/Chelmey/Map/Default/ChelmeyDefaultMap0.png" id="1_fbej0"]
 [ext_resource type="Texture2D" uid="uid://c4fwn6c1giyqt" path="res://_Assets/Textures/Characters/NPCs/PoliceOfficers/Chelmey/Map/Default/ChelmeyDefaultMap1.png" id="2_p1coe"]
@@ -60,7 +60,159 @@ enter_left = true
 dialogue_text = "Wow, what a brilliant test line. I'm sure this will become good dialogue eventually but for now it just needs to be a long string of text"
 metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
 
-[node name="BaseNPC" type="TextureButton"]
+[sub_resource type="Curve" id="Curve_fbej0"]
+_data = [Vector2(0.732558, 0.691793), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_p1coe"]
+curve = SubResource("Curve_fbej0")
+
+[sub_resource type="Curve" id="Curve_p1coe"]
+_data = [Vector2(0.559801, 0.617192), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_fbej0"]
+curve_x = SubResource("Curve_p1coe")
+
+[sub_resource type="Animation" id="Animation_fbej0"]
+resource_name = "play_conversation_icon"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ConversationIcon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ConversationIcon:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(1, 1, 1),
+"points": PackedFloat32Array(-15.9999, 0, 0, 0, 0, -30, 0, 0, 0, 0, -15.9999, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.25, 0.5)
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"begin_dialogue"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_p1coe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ConversationIcon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ConversationIcon:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-15.9999, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PuzzleIcon:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PuzzleIcon:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(56, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_poqyk"]
+resource_name = "display_puzzle_icon"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PuzzleIcon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PuzzleIcon:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(1, 1, 1),
+"points": PackedFloat32Array(56, 0, 0, 0, 0, 40.0001, 0, 0, 0, 0, 56, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.233333, 0.5)
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"begin_dialogue"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p1coe"]
+_data = {
+&"RESET": SubResource("Animation_p1coe"),
+&"display_conversation_icon": SubResource("Animation_fbej0"),
+&"display_puzzle_icon": SubResource("Animation_poqyk")
+}
+
+[node name="BaseNPC" type="TextureButton" node_paths=PackedStringArray("npc_anim")]
 anchors_preset = -1
 anchor_left = 0.695
 anchor_top = 0.622
@@ -77,6 +229,43 @@ texture_disabled = SubResource("CurveTexture_x2lb7")
 texture_focused = SubResource("AnimatedTexture_gj6ly")
 stretch_mode = 0
 script = ExtResource("4_utsqu")
+npc_anim = NodePath("NPCAnim")
 dialogue = Array[ExtResource("5_5pol1")]([SubResource("Resource_nsgk4"), SubResource("Resource_0yi25"), SubResource("Resource_gblo5"), SubResource("Resource_7gnmh")])
+
+[node name="ConversationIcon" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -19.9999
+offset_top = -15.9999
+offset_right = 20.0001
+offset_bottom = 24.0001
+grow_horizontal = 2
+texture = SubResource("CurveTexture_p1coe")
+expand_mode = 1
+
+[node name="PuzzleIcon" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.9999
+offset_top = -48.0
+offset_right = 20.0001
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CurveXYZTexture_fbej0")
+expand_mode = 1
+
+[node name="NPCAnim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_p1coe")
+}
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
