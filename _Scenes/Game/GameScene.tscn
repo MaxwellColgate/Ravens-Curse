@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://71gqliehromg"]
+[gd_scene load_steps=31 format=3 uid="uid://71gqliehromg"]
 
 [ext_resource type="PackedScene" uid="uid://cni82k8wb04cf" path="res://_Scenes/Locations/TestLocations/test_location.tscn" id="1_qbgnm"]
 [ext_resource type="PackedScene" uid="uid://dwawjjusg6gs5" path="res://_Scenes/UI/Popups/DiscussionPopup/discussion_popup.tscn" id="2_fu8qn"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://chbie1lf7rqiu" path="res://_Assets/Textures/UI/Movement/Shoe/icon_move_pressed_0.png" id="6_0hb1d"]
 [ext_resource type="PackedScene" uid="uid://dcxlpcds10f1a" path="res://_Scenes/UI/Conversations/CharacterPref.tscn" id="6_fu8qn"]
 [ext_resource type="Texture2D" uid="uid://de2ruyon2lvru" path="res://_Assets/Textures/UI/Movement/Shoe/icon_move_pressed_1.png" id="7_dgkqk"]
-[ext_resource type="AudioStream" uid="uid://bv2a12hipsw6o" path="res://_Assets/Sounds/SFX/Movement/sfx_WalkSound.ogg" id="7_sejjh"]
+[ext_resource type="AudioStream" uid="uid://c2jmx8mic01nd" path="res://_Assets/Sounds/SFX/Movement/sfx_WalkSound.ogg" id="7_sejjh"]
 [ext_resource type="Script" uid="uid://bue3yhcdxq1ea" path="res://_Scripts/Management/Loading/loading_subscriber.gd" id="9_hkesi"]
 [ext_resource type="Texture2D" uid="uid://dlkdv1uqb6myr" path="res://_Assets/Textures/UI/Conversations/bg_dialogue.svg" id="10_qbq1s"]
 [ext_resource type="Texture2D" uid="uid://larhb2tys2m7" path="res://_Assets/Textures/UI/Conversations/bg_dialogue_name.svg" id="11_o34wr"]
@@ -25,12 +25,42 @@ curve = SubResource("Curve_wdvni")
 [sub_resource type="LabelSettings" id="LabelSettings_lxbk8"]
 font_size = 30
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_7rxw1"]
-frames = 2
-frame_0/texture = ExtResource("6_0hb1d")
-frame_0/duration = 0.5
-frame_1/texture = ExtResource("7_dgkqk")
-frame_1/duration = 0.5
+[sub_resource type="Animation" id="Animation_6vqy7"]
+resource_name = "release_shoe"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("7_dgkqk"), ExtResource("5_6vqy7")]
+}
+
+[sub_resource type="Animation" id="Animation_0hb1d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_6vqy7")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0hb1d"]
+_data = {
+&"RESET": SubResource("Animation_0hb1d"),
+&"release_shoe": SubResource("Animation_6vqy7")
+}
 
 [sub_resource type="Animation" id="Animation_hkesi"]
 length = 0.001
@@ -308,7 +338,7 @@ offset_bottom = 295.0
 texture = ExtResource("4_mxajb")
 expand_mode = 1
 
-[node name="MovementButton" type="TextureButton" parent="UIScenes" node_paths=PackedStringArray("movement_sfx", "location_scene_parent")]
+[node name="MovementButton" type="TextureButton" parent="UIScenes" node_paths=PackedStringArray("movement_button_anim", "movement_sfx", "location_scene_parent")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -323,14 +353,18 @@ grow_horizontal = 0
 grow_vertical = 0
 texture_normal = ExtResource("5_6vqy7")
 texture_pressed = ExtResource("6_0hb1d")
-texture_hover = SubResource("AnimatedTexture_7rxw1")
 texture_disabled = ExtResource("5_6vqy7")
-texture_focused = ExtResource("5_6vqy7")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("5_qbgnm")
+movement_button_anim = NodePath("MovementButtonAnim")
 movement_sfx = NodePath("MovementSFX")
 location_scene_parent = NodePath("../../LocationScene")
+
+[node name="MovementButtonAnim" type="AnimationPlayer" parent="UIScenes/MovementButton"]
+libraries = {
+&"": SubResource("AnimationLibrary_0hb1d")
+}
 
 [node name="MovementSFX" type="AudioStreamPlayer" parent="UIScenes/MovementButton"]
 stream = ExtResource("7_sejjh")
@@ -467,4 +501,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_o34wr")
 }
 
+[connection signal="button_up" from="UIScenes/MovementButton" to="UIScenes/MovementButton" method="_on_button_up"]
 [connection signal="pressed" from="UIScenes/MovementButton" to="UIScenes/MovementButton" method="_on_movement_button_pressed"]

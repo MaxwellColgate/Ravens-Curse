@@ -145,7 +145,6 @@ texture_normal = ExtResource("7_hwwjl")
 texture_pressed = ExtResource("7_hwwjl")
 texture_hover = SubResource("AnimatedTexture_s1eiq")
 texture_disabled = ExtResource("7_hwwjl")
-texture_focused = ExtResource("7_hwwjl")
 target_scene_path = "res://_Scenes/Locations/TestLocations/test_location.tscn"
 
 [node name="LocationMusic" type="AudioStreamPlayer" parent="."]
