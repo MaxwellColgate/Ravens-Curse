@@ -142,3 +142,7 @@ anchor_bottom = 0.071
 offset_top = 0.0
 offset_right = -7.62939e-06
 offset_bottom = 0.0999985
+
+[node name="LocationMusic" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = &"Music"

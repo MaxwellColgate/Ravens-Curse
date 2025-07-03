@@ -9,6 +9,9 @@ signal movement_state_changed(activate_points: bool)
 # The player's move button
 var move_button: MoveButton
 
+# The movement SFX player
+var move_sfx: AudioStreamPlayer
+
 # The parent that all new scenes should be placed under
 var location_parent: Control
 
@@ -23,6 +26,7 @@ func change_movement_state(is_moving: bool):
 func move_scenes(scene_path: String):
 	# Notify the move button that the player finished moving
 	move_button.is_moving = false
+	move_sfx.play()
 	
 	# Enable the loading screen
 	LoadingManager.enable_loading_screen()

@@ -1,14 +1,19 @@
-[gd_scene load_steps=27 format=3 uid="uid://71gqliehromg"]
+[gd_scene load_steps=29 format=3 uid="uid://71gqliehromg"]
 
 [ext_resource type="PackedScene" uid="uid://cni82k8wb04cf" path="res://_Scenes/Locations/TestLocations/test_location.tscn" id="1_qbgnm"]
 [ext_resource type="PackedScene" uid="uid://dwawjjusg6gs5" path="res://_Scenes/UI/Popups/DiscussionPopup/discussion_popup.tscn" id="2_fu8qn"]
 [ext_resource type="Script" uid="uid://de14c8p2wem24" path="res://_Scripts/UI/Interactables/HintCoins/hint_coin_notif_manager.gd" id="3_qbgnm"]
 [ext_resource type="Texture2D" uid="uid://c4qfp8qtiefyi" path="res://_Assets/Textures/UI/HintCoins/HintCoin.png" id="4_mxajb"]
+[ext_resource type="Texture2D" uid="uid://dgqoodmwxapbt" path="res://_Assets/Textures/UI/Movement/icon_move_normal.png" id="5_6vqy7"]
 [ext_resource type="Script" uid="uid://ccrvrit8ycsf3" path="res://_Scripts/Management/NPCs/Conversations/conversation_manager.gd" id="5_hkesi"]
-[ext_resource type="Texture2D" uid="uid://bg7ccpe66txk7" path="res://_Assets/Textures/UI/Movement/shoe.png" id="5_mxajb"]
 [ext_resource type="Script" uid="uid://b2js4n68wgrqi" path="res://_Scripts/UI/Movement/movement_button_manager.gd" id="5_qbgnm"]
+[ext_resource type="Texture2D" uid="uid://chbie1lf7rqiu" path="res://_Assets/Textures/UI/Movement/icon_move_pressed_0.png" id="6_0hb1d"]
 [ext_resource type="PackedScene" uid="uid://dcxlpcds10f1a" path="res://_Scenes/UI/Conversations/CharacterPref.tscn" id="6_fu8qn"]
+[ext_resource type="Texture2D" uid="uid://de2ruyon2lvru" path="res://_Assets/Textures/UI/Movement/icon_move_pressed_1.png" id="7_dgkqk"]
+[ext_resource type="AudioStream" uid="uid://bv2a12hipsw6o" path="res://_Assets/Sounds/SFX/Movement/WalkSound.ogg" id="7_sejjh"]
 [ext_resource type="Script" uid="uid://bue3yhcdxq1ea" path="res://_Scripts/Management/Loading/loading_subscriber.gd" id="9_hkesi"]
+[ext_resource type="Texture2D" uid="uid://dlkdv1uqb6myr" path="res://_Assets/Textures/UI/Conversations/bg_dialogue.svg" id="10_qbq1s"]
+[ext_resource type="Texture2D" uid="uid://larhb2tys2m7" path="res://_Assets/Textures/UI/Conversations/bg_dialogue_name.svg" id="11_o34wr"]
 
 [sub_resource type="Curve" id="Curve_wdvni"]
 _data = [Vector2(0.667904, 0.716823), 0.0, 0.0, 0, 0]
@@ -20,19 +25,11 @@ curve = SubResource("Curve_wdvni")
 [sub_resource type="LabelSettings" id="LabelSettings_lxbk8"]
 font_size = 30
 
-[sub_resource type="Gradient" id="Gradient_ydsbm"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.887895, 0.599413, 0.400224, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_fu8qn"]
-gradient = SubResource("Gradient_ydsbm")
-
-[sub_resource type="Gradient" id="Gradient_fu8qn"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.427976, 0.651615, 0.476166, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_qbgnm"]
-gradient = SubResource("Gradient_fu8qn")
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_7rxw1"]
+frames = 2
+frame_0/texture = ExtResource("6_0hb1d")
+frame_1/texture = ExtResource("7_dgkqk")
+frame_1/duration = 1.0
 
 [sub_resource type="Animation" id="Animation_hkesi"]
 length = 0.001
@@ -310,7 +307,7 @@ offset_bottom = 295.0
 texture = ExtResource("4_mxajb")
 expand_mode = 1
 
-[node name="MovementButton" type="TextureButton" parent="UIScenes" node_paths=PackedStringArray("location_scene_parent")]
+[node name="MovementButton" type="TextureButton" parent="UIScenes" node_paths=PackedStringArray("movement_sfx", "location_scene_parent")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -318,20 +315,25 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -200.0
-offset_top = -180.0
+offset_top = -196.0
 offset_right = -88.0
 offset_bottom = -68.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("5_mxajb")
-texture_pressed = ExtResource("5_mxajb")
-texture_hover = ExtResource("5_mxajb")
-texture_disabled = ExtResource("5_mxajb")
-texture_focused = ExtResource("5_mxajb")
+texture_normal = ExtResource("5_6vqy7")
+texture_pressed = SubResource("AnimatedTexture_7rxw1")
+texture_hover = SubResource("AnimatedTexture_7rxw1")
+texture_disabled = ExtResource("5_6vqy7")
+texture_focused = SubResource("AnimatedTexture_7rxw1")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("5_qbgnm")
+movement_sfx = NodePath("MovementSFX")
 location_scene_parent = NodePath("../../LocationScene")
+
+[node name="MovementSFX" type="AudioStreamPlayer" parent="UIScenes/MovementButton"]
+stream = ExtResource("7_sejjh")
+bus = &"SFX"
 
 [node name="ConversationScene" type="Control" parent="." node_paths=PackedStringArray("convo_transitions", "character_scene", "character_marks", "dialogue_text_box", "name_text_box")]
 visible = false
@@ -396,7 +398,7 @@ offset_top = 0.0999756
 offset_bottom = 4.59998
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture1D_fu8qn")
+texture = ExtResource("10_qbq1s")
 
 [node name="DialogueText" type="RichTextLabel" parent="ConversationScene/DialogueBox"]
 layout_mode = 1
@@ -422,7 +424,7 @@ anchor_left = 0.01
 anchor_right = 0.175
 offset_top = -64.0
 offset_right = -3.05176e-05
-texture = SubResource("GradientTexture1D_qbgnm")
+texture = ExtResource("11_o34wr")
 
 [node name="NameText" type="RichTextLabel" parent="ConversationScene/DialogueBox/NameBox"]
 layout_mode = 1

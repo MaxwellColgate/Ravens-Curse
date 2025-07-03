@@ -3,6 +3,8 @@ class_name MoveButton
 
 ## Manges the logic related to the player's movement button
 
+# The movement SFX player
+@export var movement_sfx: AudioStreamPlayer
 
 # The node that all location scenes are parented too
 @export var location_scene_parent: Control
@@ -15,6 +17,7 @@ var is_moving = false
 func _ready():
 	MovementManager.move_button = self
 	MovementManager.location_parent = location_scene_parent
+	MovementManager.move_sfx = movement_sfx
 	MovementManager.current_scene = location_scene_parent.get_child(0)
 
 # Start or stop moving when player presses on the movement button

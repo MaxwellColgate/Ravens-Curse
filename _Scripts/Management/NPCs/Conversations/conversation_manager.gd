@@ -70,7 +70,7 @@ func _ready() -> void:
 
 # Iterates through dialogue when the player clicks
 func _input(event):
-	# If conversation is not active, return
+	# If conversation is not ready to begin, return
 	if not conversation_ready:
 		return
 	
