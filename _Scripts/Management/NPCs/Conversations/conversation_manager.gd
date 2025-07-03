@@ -21,7 +21,10 @@ extends Node
 @export var character_marks: Array[Control]
 
 # How far off screen characters spawn before moving on screen
-@export var character_spawn_offest: float = 0
+@export var character_spawn_offest = 0.0
+
+# The additional padding space between characters on each side of the screen
+@export var character_padding = 250.0
 
 # How many times larger then their normal height should characters be scaled too
 @export var character_scale = 3
@@ -38,6 +41,7 @@ extends Node
 # How fast dialogue is written to the screen
 @export var letter_frequency: float = 0.02
 
+
 # Is the current line being played?
 var writing_line = false
 
@@ -46,6 +50,12 @@ var conversation: Array[ConversationData]
 
 # The character's currently on screen
 var characters = {} #CharacterData: $"res://_Scenes/Characters/Conversations/CharacterPref.tscn"
+
+# The characters that are currently on the left hand side of the screen
+var left_characters: Array[Object]
+
+# The characters that are currently on the right hand side of the screen
+var right_characters: Array[Object]
 
 # The current line of dialogue
 var current_line = 0
@@ -111,27 +121,46 @@ func introduce_character(character: CharacterData, pose: String, spawn_left: boo
 	characters[character] = new_character
 	
 	var character_texture = new_character.get_node("CharacterTexture")
-	character_texture.texture = character.get_character_pose(pose, spawn_left)
+	character_texture.texture = character.get_character_pose(pose, false)
 	
 	# Scale character up based on their height so that they all look right
 	character_texture.size.y = character_texture.texture.get_height() * character_scale
 	character_texture.position.y = -character_texture.texture.get_height() * character_scale
 	
 	# The spot this character should start
-	var spawn_pos: Vector2
+	var spawn_pos = Vector2.ZERO
 	spawn_pos.y = character_marks[0].position.y
 	
 	# The spot this character should move towards after spawning in
 	var target_pos: Vector2
+	target_pos.y = character_marks[0].position.y
 	
 	# Move character off screen and get target
 	if spawn_left:
 		spawn_pos.x -= character_spawn_offest
-		target_pos = character_marks[0].position
+		
+		# If there is already a character on the left side of the screen,
+		# move this character next to that character instead of overlapping them
+		if left_characters.size() > 0:
+			# The latest character spawned on the left side of the screen
+			var latest_character = left_characters.back()
+			target_pos.x = latest_character.target_pos.x - character_padding
+		else:
+			target_pos.x = character_marks[0].position.x
+		left_characters.append(new_character)
 	else:
 		spawn_pos.x = get_viewport().get_visible_rect().size.x + character_spawn_offest
-		target_pos = Vector2(character_marks[1].position.x - character_texture.texture.get_width(),
-				character_marks[1].position.y)
+		
+		# If there is already a character on the right side of the screen,
+		# move this character next to that character instead of overlapping them
+		if right_characters.size() > 0:
+			# The latest character spawned on the right side of the screen
+			var latest_character = right_characters.back()
+			target_pos.x = (latest_character.target_pos.x + latest_character.size.x
+				+ character_padding)
+		else:
+			target_pos.x = character_marks[1].position.x - character_texture.size.x
+		right_characters.append(new_character)
 	new_character.position = spawn_pos
 	
 	# Notify character to start moving towards their mark
@@ -168,7 +197,11 @@ func play_line(line: ConversationData):
 # Clear out all the data assosciated with this conversation and close the scene
 func end_conversation():
 	conversation.clear()
+	left_characters.clear()
+	right_characters.clear()
+	current_line = 0
+	
 	for character in characters:
 		characters[character].exit_scene()
-	current_line = 0
+	
 	convo_transitions.play("convo_fade_out")

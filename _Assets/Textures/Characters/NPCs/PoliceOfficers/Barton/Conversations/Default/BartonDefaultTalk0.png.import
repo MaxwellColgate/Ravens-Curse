@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xhcojxhwik5l"
-path="res://.godot/imported/ChelmeyDefaultMap2.png-2ebd6d7a2e2a001f0b7f54d7812b5ab4.ctex"
+uid="uid://dxus2j6o225mc"
+path="res://.godot/imported/BartonDefaultTalk0.png-6e978da08a7b8c6d49e276e55729e189.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_Assets/Textures/Characters/NPCs/Chelmey/Map/Default/ChelmeyDefaultMap2.png"
-dest_files=["res://.godot/imported/ChelmeyDefaultMap2.png-2ebd6d7a2e2a001f0b7f54d7812b5ab4.ctex"]
+source_file="res://_Assets/Textures/Characters/NPCs/PoliceOfficers/Barton/Conversations/Default/BartonDefaultTalk0.png"
+dest_files=["res://.godot/imported/BartonDefaultTalk0.png-6e978da08a7b8c6d49e276e55729e189.ctex"]
 
 [params]
 

@@ -24,6 +24,9 @@ func move_scenes(scene_path: String):
 	# Notify the move button that the player finished moving
 	move_button.is_moving = false
 	
+	# Enable the loading screen
+	LoadingManager.enable_loading_screen()
+	
 	# Delete old location scene
 	current_scene.queue_free()
 	
@@ -33,3 +36,6 @@ func move_scenes(scene_path: String):
 	
 	# Set new_scene to the current scene
 	current_scene = new_scene
+	
+	# Disable the loading screen
+	LoadingManager.disable_loading_screen()

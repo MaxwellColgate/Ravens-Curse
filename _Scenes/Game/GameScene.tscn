@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://71gqliehromg"]
+[gd_scene load_steps=27 format=3 uid="uid://71gqliehromg"]
 
 [ext_resource type="PackedScene" uid="uid://cni82k8wb04cf" path="res://_Scenes/Locations/TestLocations/test_location.tscn" id="1_qbgnm"]
 [ext_resource type="PackedScene" uid="uid://dwawjjusg6gs5" path="res://_Scenes/UI/Popups/DiscussionPopup/discussion_popup.tscn" id="2_fu8qn"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bg7ccpe66txk7" path="res://_Assets/Textures/UI/Movement/shoe.png" id="5_mxajb"]
 [ext_resource type="Script" uid="uid://b2js4n68wgrqi" path="res://_Scripts/UI/Movement/movement_button_manager.gd" id="5_qbgnm"]
 [ext_resource type="PackedScene" uid="uid://dcxlpcds10f1a" path="res://_Scenes/UI/Conversations/CharacterPref.tscn" id="6_fu8qn"]
+[ext_resource type="Script" uid="uid://bue3yhcdxq1ea" path="res://_Scripts/Management/Loading/loading_subscriber.gd" id="9_hkesi"]
 
 [sub_resource type="Curve" id="Curve_wdvni"]
 _data = [Vector2(0.667904, 0.716823), 0.0, 0.0, 0, 0]
@@ -152,6 +153,88 @@ _data = {
 &"convo_fade_out": SubResource("Animation_sejjh")
 }
 
+[sub_resource type="Curve" id="Curve_mxajb"]
+_data = [Vector2(0.418605, 0.0990883), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_hkesi"]
+curve = SubResource("Curve_mxajb")
+
+[sub_resource type="Animation" id="Animation_o34wr"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qbq1s"]
+resource_name = "transition_fade_in"
+length = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+
+[sub_resource type="Animation" id="Animation_cj7gf"]
+resource_name = "transition_fade_out"
+length = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0, 0, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o34wr"]
+_data = {
+&"RESET": SubResource("Animation_o34wr"),
+&"loading_fade_in": SubResource("Animation_qbq1s"),
+&"loading_fade_out": SubResource("Animation_cj7gf")
+}
+
 [node name="Game" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -290,11 +373,11 @@ mouse_filter = 2
 
 [node name="RightCharacterMark" type="Control" parent="ConversationScene"]
 layout_mode = 1
-anchor_left = 0.76
+anchor_left = 0.8
 anchor_top = 0.782
-anchor_right = 0.76
+anchor_right = 0.8
 anchor_bottom = 0.782
-offset_top = 0.199951
+offset_top = 0.200012
 offset_bottom = 0.199951
 mouse_filter = 2
 
@@ -362,6 +445,23 @@ vertical_alignment = 1
 [node name="ConvoTransitions" type="AnimationPlayer" parent="ConversationScene"]
 libraries = {
 &"": SubResource("AnimationLibrary_hkesi")
+}
+
+[node name="LoadingScreen" type="TextureRect" parent="." node_paths=PackedStringArray("loading_anim")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CurveTexture_hkesi")
+script = ExtResource("9_hkesi")
+loading_anim = NodePath("LoadingAnim")
+
+[node name="LoadingAnim" type="AnimationPlayer" parent="LoadingScreen"]
+libraries = {
+&"": SubResource("AnimationLibrary_o34wr")
 }
 
 [connection signal="pressed" from="UIScenes/MovementButton" to="UIScenes/MovementButton" method="_on_movement_button_pressed"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://buas56xukkoep"]
 
-[ext_resource type="Texture2D" uid="uid://b10ae3bpgtrfm" path="res://_Assets/Textures/Characters/NPCs/Chelmey/Map/Default/ChelmeyDefaultMap0.png" id="1_fbej0"]
-[ext_resource type="Texture2D" uid="uid://c4fwn6c1giyqt" path="res://_Assets/Textures/Characters/NPCs/Chelmey/Map/Default/ChelmeyDefaultMap1.png" id="2_p1coe"]
-[ext_resource type="Texture2D" uid="uid://xhcojxhwik5l" path="res://_Assets/Textures/Characters/NPCs/Chelmey/Map/Default/ChelmeyDefaultMap2.png" id="3_poqyk"]
+[ext_resource type="Texture2D" uid="uid://b10ae3bpgtrfm" path="res://_Assets/Textures/Characters/NPCs/PoliceOfficers/Chelmey/Map/Default/ChelmeyDefaultMap0.png" id="1_fbej0"]
+[ext_resource type="Texture2D" uid="uid://c4fwn6c1giyqt" path="res://_Assets/Textures/Characters/NPCs/PoliceOfficers/Chelmey/Map/Default/ChelmeyDefaultMap1.png" id="2_p1coe"]
+[ext_resource type="Texture2D" uid="uid://xhcojxhwik5l" path="res://_Assets/Textures/Characters/NPCs/PoliceOfficers/Chelmey/Map/Default/ChelmeyDefaultMap2.png" id="3_poqyk"]
 [ext_resource type="Script" uid="uid://blxw6udjhewjy" path="res://_Scripts/Characters/NPCs/Conversations/npc_conversation.gd" id="4_utsqu"]
 [ext_resource type="Script" uid="uid://bp4dyuu8y01eb" path="res://_Scripts/Characters/NPCs/Conversations/conversation_data.gd" id="5_5pol1"]
 [ext_resource type="Resource" uid="uid://djbiiwnuacml1" path="res://Resources/Characters/NPCs/Testing/TestLayton.tres" id="6_thgn0"]

@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="CharacterData" load_steps=7 format=3 uid="uid://d3lq0vbel658n"]
 
-[ext_resource type="Texture2D" uid="uid://c7x8xsmvgqed1" path="res://_Assets/Textures/Characters/NPCs/Chelmey/Conversations/Default/ChelmeyIdle.png" id="1_6t43i"]
+[ext_resource type="Texture2D" uid="uid://c7x8xsmvgqed1" path="res://_Assets/Textures/Characters/NPCs/PoliceOfficers/Chelmey/Conversations/Default/ChelmeyDefaultIdle.png" id="1_6t43i"]
 [ext_resource type="Texture2D" uid="uid://cr3rdfabl4tfs" path="res://icon.svg" id="1_kt41i"]
-[ext_resource type="Texture2D" uid="uid://btsb20vv86j27" path="res://_Assets/Textures/Characters/NPCs/Chelmey/Conversations/Default/ChelmeyTalk0.png" id="2_smkq4"]
+[ext_resource type="Texture2D" uid="uid://btsb20vv86j27" path="res://_Assets/Textures/Characters/NPCs/PoliceOfficers/Chelmey/Conversations/Default/ChelmeyDefaultTalk0.png" id="2_smkq4"]
 [ext_resource type="Script" uid="uid://dpi11ffvge5kp" path="res://_Scripts/Characters/character_data.gd" id="3_6t43i"]
-[ext_resource type="Texture2D" uid="uid://mcsb2nlk0sxh" path="res://_Assets/Textures/Characters/NPCs/Chelmey/Conversations/Default/ChelmeyTalk1.png" id="3_yo5iy"]
+[ext_resource type="Texture2D" uid="uid://mcsb2nlk0sxh" path="res://_Assets/Textures/Characters/NPCs/PoliceOfficers/Chelmey/Conversations/Default/ChelmeyDefaultTalk1.png" id="3_yo5iy"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_brkhq"]
 frames = 2

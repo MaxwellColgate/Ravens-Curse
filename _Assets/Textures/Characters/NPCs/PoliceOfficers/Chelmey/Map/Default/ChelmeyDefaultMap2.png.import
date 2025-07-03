@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b10ae3bpgtrfm"
-path="res://.godot/imported/ChelmeyDefaultMap0.png-0ac9cdac2bbb2904f0cdc066943144ca.ctex"
+uid="uid://xhcojxhwik5l"
+path="res://.godot/imported/ChelmeyDefaultMap2.png-973db1c53f1dece1bbbd3dff7491194c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_Assets/Textures/Characters/NPCs/Chelmey/Map/Default/ChelmeyDefaultMap0.png"
-dest_files=["res://.godot/imported/ChelmeyDefaultMap0.png-0ac9cdac2bbb2904f0cdc066943144ca.ctex"]
+source_file="res://_Assets/Textures/Characters/NPCs/PoliceOfficers/Chelmey/Map/Default/ChelmeyDefaultMap2.png"
+dest_files=["res://.godot/imported/ChelmeyDefaultMap2.png-973db1c53f1dece1bbbd3dff7491194c.ctex"]
 
 [params]
 

@@ -47,6 +47,7 @@ func _process(delta: float) -> void:
 	# If character has reached their destination, stop moving
 	# lerp doesn't quite reach 1, so stop at 0.9 instead
 	if move_progress > 0.9:
+		position = starting_pos.lerp(target_pos, 1)
 		move = false
 		# If character has finished leaving, destroy them
 		if is_leaving:

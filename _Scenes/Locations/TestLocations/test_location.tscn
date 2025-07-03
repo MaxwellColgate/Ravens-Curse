@@ -1,12 +1,70 @@
-[gd_scene load_steps=11 format=3 uid="uid://cni82k8wb04cf"]
+[gd_scene load_steps=21 format=3 uid="uid://cni82k8wb04cf"]
 
 [ext_resource type="Texture2D" uid="uid://d3ld5nm8s2drj" path="res://_Assets/Textures/Backgrounds/Testing/TestBackground.png" id="1_tt0p1"]
 [ext_resource type="PackedScene" uid="uid://dmal3tjknb66o" path="res://_Scenes/Interactables/HintCoins/hint_coin_trigger.tscn" id="2_tndd5"]
 [ext_resource type="PackedScene" uid="uid://buas56xukkoep" path="res://_Scenes/Interactables/Characters/base_npc.tscn" id="3_cbe4h"]
+[ext_resource type="Script" uid="uid://bp4dyuu8y01eb" path="res://_Scripts/Characters/NPCs/Conversations/conversation_data.gd" id="4_a6pt4"]
 [ext_resource type="PackedScene" uid="uid://cqldb76gnrurp" path="res://_Scenes/Interactables/Discussions/discussion_popup_trigger.tscn" id="4_t4ql0"]
 [ext_resource type="Script" uid="uid://5x167bve2yks" path="res://_Scripts/UI/Interactables/DiscussionPopup/discussion_data.gd" id="5_4w5gx"]
+[ext_resource type="Resource" uid="uid://d3lq0vbel658n" path="res://Resources/Characters/NPCs/Testing/TestChelmey.tres" id="6_17k63"]
+[ext_resource type="Resource" uid="uid://bpjfiiij7i5iq" path="res://Resources/Characters/NPCs/Testing/TestLuke.tres" id="6_t4ebl"]
 [ext_resource type="Resource" uid="uid://djbiiwnuacml1" path="res://Resources/Characters/NPCs/Testing/TestLayton.tres" id="6_wtllu"]
+[ext_resource type="Resource" uid="uid://eso6brwxfdgb" path="res://Resources/Characters/NPCs/Testing/TestBarton.tres" id="7_t4ebl"]
 [ext_resource type="PackedScene" uid="uid://hqftoaafddc5" path="res://_Scenes/UI/Movement/movement_arrow.tscn" id="7_u1o1p"]
+
+[sub_resource type="Resource" id="Resource_nsgk4"]
+script = ExtResource("4_a6pt4")
+action = 1
+character = ExtResource("6_wtllu")
+character_pose = "default"
+enter_left = true
+dialogue_text = ""
+metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
+
+[sub_resource type="Resource" id="Resource_t4ebl"]
+script = ExtResource("4_a6pt4")
+action = 1
+character = ExtResource("6_t4ebl")
+character_pose = "default"
+enter_left = true
+dialogue_text = ""
+metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
+
+[sub_resource type="Resource" id="Resource_0yi25"]
+script = ExtResource("4_a6pt4")
+action = 1
+character = ExtResource("6_17k63")
+character_pose = "default"
+enter_left = false
+dialogue_text = ""
+metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
+
+[sub_resource type="Resource" id="Resource_66il7"]
+script = ExtResource("4_a6pt4")
+action = 1
+character = ExtResource("7_t4ebl")
+character_pose = "default"
+enter_left = false
+dialogue_text = ""
+metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
+
+[sub_resource type="Resource" id="Resource_gblo5"]
+script = ExtResource("4_a6pt4")
+action = 0
+character = ExtResource("6_wtllu")
+character_pose = "default"
+enter_left = true
+dialogue_text = "aaaaaaaaaaaaa a a a  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
+
+[sub_resource type="Resource" id="Resource_7gnmh"]
+script = ExtResource("4_a6pt4")
+action = 0
+character = ExtResource("6_17k63")
+character_pose = "default"
+enter_left = true
+dialogue_text = "Wow, what a brilliant test line. I'm sure this will become good dialogue eventually but for now it just needs to be a long string of text"
+metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
 
 [sub_resource type="Resource" id="Resource_gj6ly"]
 script = ExtResource("5_4w5gx")
@@ -105,6 +163,7 @@ offset_top = -6.10352e-05
 offset_right = 0.0
 offset_bottom = 4.69995
 button_mask = 1
+dialogue = Array[ExtResource("4_a6pt4")]([SubResource("Resource_nsgk4"), SubResource("Resource_t4ebl"), SubResource("Resource_0yi25"), SubResource("Resource_66il7"), SubResource("Resource_gblo5"), SubResource("Resource_7gnmh")])
 
 [node name="Discussions" type="Control" parent="Interactables"]
 layout_mode = 1

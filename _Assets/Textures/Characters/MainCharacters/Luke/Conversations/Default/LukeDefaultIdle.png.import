@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mcsb2nlk0sxh"
-path="res://.godot/imported/ChelmeyTalk1.png-e45a5cacef74cb91659dad8752114b6b.ctex"
+uid="uid://dxk7kr8higrqu"
+path="res://.godot/imported/LukeDefaultIdle.png-b6dac548a14e3a5cb292a8f0a1d6023b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_Assets/Textures/Characters/NPCs/Chelmey/Conversations/Default/ChelmeyTalk1.png"
-dest_files=["res://.godot/imported/ChelmeyTalk1.png-e45a5cacef74cb91659dad8752114b6b.ctex"]
+source_file="res://_Assets/Textures/Characters/MainCharacters/Luke/Conversations/Default/LukeDefaultIdle.png"
+dest_files=["res://.godot/imported/LukeDefaultIdle.png-b6dac548a14e3a5cb292a8f0a1d6023b.ctex"]
 
 [params]
 
