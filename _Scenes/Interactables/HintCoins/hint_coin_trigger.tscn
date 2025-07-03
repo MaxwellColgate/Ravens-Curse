@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmal3tjknb66o"]
+[gd_scene load_steps=9 format=3 uid="uid://dmal3tjknb66o"]
 
 [ext_resource type="Script" uid="uid://xsr3peeduj0b" path="res://_Scripts/UI/Interactables/HintCoins/hint_coin_trigger.gd" id="1_uf7r0"]
 [ext_resource type="Texture2D" uid="uid://e3d6ndc14yxb" path="res://_Assets/Textures/UI/HintCoins/TestCoinFlip.png" id="2_j4jos"]
+[ext_resource type="AudioStream" uid="uid://pii28tsig2fh" path="res://_Assets/Sounds/SFX/Interactables/HintCoins/sfx_coin.wav" id="3_tv830"]
 
 [sub_resource type="Animation" id="Animation_j4jos"]
 tracks/0/type = "value"
@@ -48,7 +49,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_tv830"]
 resource_name = "coin_flip"
-length = 0.4
+length = 0.5
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -99,6 +100,21 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CoinCollectSound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_tv830")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tv830"]
 _data = {
@@ -136,5 +152,8 @@ scale = Vector2(0.6, 0.75)
 texture = SubResource("AtlasTexture_j4jos")
 expand_mode = 1
 stretch_mode = 3
+
+[node name="CoinCollectSound" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [connection signal="pressed" from="." to="." method="hint_coin_found"]

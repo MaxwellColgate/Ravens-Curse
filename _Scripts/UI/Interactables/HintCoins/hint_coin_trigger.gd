@@ -6,6 +6,9 @@ extends Node
 # The hint coin sprite that appears when you click on the trigger
 @export var coin: Control
 
+# The hint coin trigger's audio stream
+@export var coin_sfx: AudioStreamPlayer
+
 # The hint coin's animation player
 @export var coin_flip_anim: AnimationPlayer
 

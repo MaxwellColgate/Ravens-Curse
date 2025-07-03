@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chbie1lf7rqiu"
-path="res://.godot/imported/icon_move_pressed_0.png-5fef046543c73cc7c131a87e22924565.ctex"
+uid="uid://de2ruyon2lvru"
+path="res://.godot/imported/icon_move_pressed_1.png-d2936e526d0955bdb18d93b6ecacc67d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_Assets/Textures/UI/Movement/icon_move_pressed_0.png"
-dest_files=["res://.godot/imported/icon_move_pressed_0.png-5fef046543c73cc7c131a87e22924565.ctex"]
+source_file="res://_Assets/Textures/UI/Movement/Shoe/icon_move_pressed_1.png"
+dest_files=["res://.godot/imported/icon_move_pressed_1.png-d2936e526d0955bdb18d93b6ecacc67d.ctex"]
 
 [params]
 

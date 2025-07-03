@@ -198,11 +198,13 @@ mouse_filter = 2
 [node name="CourthouseArrow" parent="Interactables/Movement" instance=ExtResource("7_u1o1p")]
 visible = false
 layout_mode = 1
-anchor_left = 0.715
-anchor_top = 0.738
-anchor_right = 0.76
-offset_top = -0.200012
-offset_right = -0.000244141
+anchor_left = 0.705
+anchor_top = 0.729
+anchor_right = 0.77
+anchor_bottom = 0.844
+offset_left = -0.00012207
+offset_top = -0.100037
+offset_bottom = 0.399963
 target_scene_path = "res://_Scenes/Locations/TestLocations/test_location_1.tscn"
 
 [node name="LocationMusic" type="AudioStreamPlayer" parent="."]

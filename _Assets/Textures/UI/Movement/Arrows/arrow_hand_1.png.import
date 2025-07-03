@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de2ruyon2lvru"
-path="res://.godot/imported/icon_move_pressed_1.png-8e9224defc2eb330a03030fea3c94446.ctex"
+uid="uid://c42rf44aoylc7"
+path="res://.godot/imported/arrow_hand_1.png-4258af8f5939eeb29df8d0848a9579ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_Assets/Textures/UI/Movement/icon_move_pressed_1.png"
-dest_files=["res://.godot/imported/icon_move_pressed_1.png-8e9224defc2eb330a03030fea3c94446.ctex"]
+source_file="res://_Assets/Textures/UI/Movement/Arrows/arrow_hand_1.png"
+dest_files=["res://.godot/imported/arrow_hand_1.png-4258af8f5939eeb29df8d0848a9579ae.ctex"]
 
 [params]
 

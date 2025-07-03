@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://hqftoaafddc5"]
+[gd_scene load_steps=5 format=3 uid="uid://hqftoaafddc5"]
 
 [ext_resource type="Script" uid="uid://drlarftb0isii" path="res://_Scripts/UI/Movement/movement_arrow_trigger.gd" id="1_u4q3y"]
+[ext_resource type="Texture2D" uid="uid://cnsc7ye61p02f" path="res://_Assets/Textures/UI/Movement/Arrows/arrow_back_0.png" id="1_x32fe"]
+[ext_resource type="Texture2D" uid="uid://612gv7abax3x" path="res://_Assets/Textures/UI/Movement/Arrows/arrow_back_1.png" id="2_s1i2x"]
 
-[sub_resource type="Curve" id="Curve_x2lb7"]
-_data = [Vector2(0.752542, 0.680858), 0.0, 0.0, 0, 0]
-point_count = 1
-
-[sub_resource type="CurveTexture" id="CurveTexture_7slap"]
-curve = SubResource("Curve_x2lb7")
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_mfwfe"]
+frames = 2
+frame_0/texture = ExtResource("1_x32fe")
+frame_0/duration = 0.3
+frame_1/texture = ExtResource("2_s1i2x")
+frame_1/duration = 0.3
 
 [node name="MovementArrow" type="TextureButton"]
 anchors_preset = -1
@@ -18,11 +20,11 @@ anchor_bottom = 0.818
 offset_top = -0.400024
 offset_right = -0.00012207
 offset_bottom = -0.200012
-texture_normal = SubResource("CurveTexture_7slap")
-texture_pressed = SubResource("CurveTexture_7slap")
-texture_hover = SubResource("CurveTexture_7slap")
-texture_disabled = SubResource("CurveTexture_7slap")
-texture_focused = SubResource("CurveTexture_7slap")
+texture_normal = ExtResource("1_x32fe")
+texture_pressed = SubResource("AnimatedTexture_mfwfe")
+texture_hover = SubResource("AnimatedTexture_mfwfe")
+texture_disabled = ExtResource("1_x32fe")
+texture_focused = ExtResource("1_x32fe")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("1_u4q3y")

@@ -4,13 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://dwawjjusg6gs5" path="res://_Scenes/UI/Popups/DiscussionPopup/discussion_popup.tscn" id="2_fu8qn"]
 [ext_resource type="Script" uid="uid://de14c8p2wem24" path="res://_Scripts/UI/Interactables/HintCoins/hint_coin_notif_manager.gd" id="3_qbgnm"]
 [ext_resource type="Texture2D" uid="uid://c4qfp8qtiefyi" path="res://_Assets/Textures/UI/HintCoins/HintCoin.png" id="4_mxajb"]
-[ext_resource type="Texture2D" uid="uid://dgqoodmwxapbt" path="res://_Assets/Textures/UI/Movement/icon_move_normal.png" id="5_6vqy7"]
+[ext_resource type="Texture2D" uid="uid://dgqoodmwxapbt" path="res://_Assets/Textures/UI/Movement/Shoe/icon_move_normal.png" id="5_6vqy7"]
 [ext_resource type="Script" uid="uid://ccrvrit8ycsf3" path="res://_Scripts/Management/NPCs/Conversations/conversation_manager.gd" id="5_hkesi"]
 [ext_resource type="Script" uid="uid://b2js4n68wgrqi" path="res://_Scripts/UI/Movement/movement_button_manager.gd" id="5_qbgnm"]
-[ext_resource type="Texture2D" uid="uid://chbie1lf7rqiu" path="res://_Assets/Textures/UI/Movement/icon_move_pressed_0.png" id="6_0hb1d"]
+[ext_resource type="Texture2D" uid="uid://chbie1lf7rqiu" path="res://_Assets/Textures/UI/Movement/Shoe/icon_move_pressed_0.png" id="6_0hb1d"]
 [ext_resource type="PackedScene" uid="uid://dcxlpcds10f1a" path="res://_Scenes/UI/Conversations/CharacterPref.tscn" id="6_fu8qn"]
-[ext_resource type="Texture2D" uid="uid://de2ruyon2lvru" path="res://_Assets/Textures/UI/Movement/icon_move_pressed_1.png" id="7_dgkqk"]
-[ext_resource type="AudioStream" uid="uid://bv2a12hipsw6o" path="res://_Assets/Sounds/SFX/Movement/WalkSound.ogg" id="7_sejjh"]
+[ext_resource type="Texture2D" uid="uid://de2ruyon2lvru" path="res://_Assets/Textures/UI/Movement/Shoe/icon_move_pressed_1.png" id="7_dgkqk"]
+[ext_resource type="AudioStream" uid="uid://bv2a12hipsw6o" path="res://_Assets/Sounds/SFX/Movement/sfx_WalkSound.ogg" id="7_sejjh"]
 [ext_resource type="Script" uid="uid://bue3yhcdxq1ea" path="res://_Scripts/Management/Loading/loading_subscriber.gd" id="9_hkesi"]
 [ext_resource type="Texture2D" uid="uid://dlkdv1uqb6myr" path="res://_Assets/Textures/UI/Conversations/bg_dialogue.svg" id="10_qbq1s"]
 [ext_resource type="Texture2D" uid="uid://larhb2tys2m7" path="res://_Assets/Textures/UI/Conversations/bg_dialogue_name.svg" id="11_o34wr"]
@@ -28,8 +28,9 @@ font_size = 30
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_7rxw1"]
 frames = 2
 frame_0/texture = ExtResource("6_0hb1d")
+frame_0/duration = 0.5
 frame_1/texture = ExtResource("7_dgkqk")
-frame_1/duration = 1.0
+frame_1/duration = 0.5
 
 [sub_resource type="Animation" id="Animation_hkesi"]
 length = 0.001
@@ -321,10 +322,10 @@ offset_bottom = -68.0
 grow_horizontal = 0
 grow_vertical = 0
 texture_normal = ExtResource("5_6vqy7")
-texture_pressed = SubResource("AnimatedTexture_7rxw1")
+texture_pressed = ExtResource("6_0hb1d")
 texture_hover = SubResource("AnimatedTexture_7rxw1")
 texture_disabled = ExtResource("5_6vqy7")
-texture_focused = SubResource("AnimatedTexture_7rxw1")
+texture_focused = ExtResource("5_6vqy7")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("5_qbgnm")
