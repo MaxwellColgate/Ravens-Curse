@@ -22,8 +22,8 @@ var current_scene
 func change_movement_state(is_moving: bool):
 	movement_state_changed.emit(is_moving)
 
-# Moves between location scenes when player hits a movement arrow
-func move_scenes(scene_path: String):
+# Moves between location scenes when player hits a walk arrow
+func walk_to_scene(scene_path: String):
 	# Notify the move button that the player finished moving
 	move_button.is_moving = false
 	move_sfx.play()

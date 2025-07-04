@@ -17,4 +17,4 @@ func change_arrow_visibility(is_visible: bool):
 
 # Move to target_scene after pressing this arrow
 func _on_movement_arrow_trigger_pressed() -> void:
-	MovementManager.move_scenes(target_scene_path)
+	MovementManager.walk_to_scene(target_scene_path)
