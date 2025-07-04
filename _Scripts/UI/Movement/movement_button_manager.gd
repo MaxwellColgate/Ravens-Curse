@@ -29,6 +29,6 @@ func _on_movement_button_pressed() -> void:
 	is_moving = !is_moving
 	MovementManager.change_movement_state(is_moving)
 
-
+# Play the shoe release animation once you press the movement button
 func _on_button_up() -> void:
 	movement_button_anim.play("release_shoe")

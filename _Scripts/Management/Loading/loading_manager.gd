@@ -12,7 +12,6 @@ var loading_screen
 # The loading screen animation player
 var loading_anim: AnimationPlayer
 
-
 func enable_loading_screen():
 	loading_screen.visible = true
 	loading_anim.play("loading_fade_in")

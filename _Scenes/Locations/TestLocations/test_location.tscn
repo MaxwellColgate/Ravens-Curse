@@ -211,3 +211,4 @@ target_scene_path = "res://_Scenes/Locations/TestLocations/test_location_1.tscn"
 stream = ExtResource("12_66il7")
 autoplay = true
 bus = &"Music"
+parameters/looping = true

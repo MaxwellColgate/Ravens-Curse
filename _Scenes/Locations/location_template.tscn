@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxsmhtaoiidoy"]
+[gd_scene load_steps=11 format=3 uid="uid://cxsmhtaoiidoy"]
 
 [ext_resource type="Texture2D" uid="uid://dicifbwl3nrj5" path="res://_Assets/Textures/_Placeholder/greybox_orange_grid.png" id="1_gntuo"]
 [ext_resource type="PackedScene" uid="uid://dmal3tjknb66o" path="res://_Scenes/Interactables/HintCoins/hint_coin_trigger.tscn" id="2_v7pjr"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://djbiiwnuacml1" path="res://Resources/Characters/NPCs/Testing/TestLayton.tres" id="5_x2lb7"]
 [ext_resource type="Script" uid="uid://5x167bve2yks" path="res://_Scripts/UI/Interactables/DiscussionPopup/discussion_data.gd" id="7_7slap"]
 [ext_resource type="PackedScene" uid="uid://hqftoaafddc5" path="res://_Scenes/UI/Movement/movement_arrow.tscn" id="7_gj6ly"]
+[ext_resource type="AudioStream" uid="uid://bpicgfbc4g8ju" path="res://_Assets/Sounds/Music/Testing/Dropstone.mp3" id="9_7hgko"]
 
 [sub_resource type="Resource" id="Resource_nsgk4"]
 script = ExtResource("4_g8leb")
@@ -144,5 +145,7 @@ offset_right = -7.62939e-06
 offset_bottom = 0.0999985
 
 [node name="LocationMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_7hgko")
 autoplay = true
 bus = &"Music"
+parameters/looping = true
