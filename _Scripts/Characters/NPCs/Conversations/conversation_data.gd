@@ -27,8 +27,10 @@ enum possible_actions
 @export_group("Introduction")
 
 # Should this character enter on the left side of the screen?
-@export var enter_left: bool = true
+@export var enter_left = true
 
+# Should this character's sprite be flipped horizontally?
+@export var flip_character = false
 
 # Data assosciated with a character speaking
 @export_group("Speaking")

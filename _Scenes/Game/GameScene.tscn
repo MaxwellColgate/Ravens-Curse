@@ -291,7 +291,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="LocationTemplate" parent="LocationScene" instance=ExtResource("1_qbgnm")]
+[node name="test_location" parent="LocationScene" instance=ExtResource("1_qbgnm")]
 layout_mode = 1
 
 [node name="UIScenes" type="Control" parent="."]

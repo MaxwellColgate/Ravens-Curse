@@ -19,6 +19,7 @@ action = 1
 character = ExtResource("6_wtllu")
 character_pose = "default"
 enter_left = true
+flip_character = null
 dialogue_text = ""
 metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
 
@@ -28,6 +29,7 @@ action = 1
 character = ExtResource("6_t4ebl")
 character_pose = "default"
 enter_left = true
+flip_character = null
 dialogue_text = ""
 metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
 
@@ -37,6 +39,7 @@ action = 1
 character = ExtResource("6_17k63")
 character_pose = "default"
 enter_left = false
+flip_character = null
 dialogue_text = ""
 metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
 
@@ -46,6 +49,7 @@ action = 1
 character = ExtResource("7_t4ebl")
 character_pose = "default"
 enter_left = false
+flip_character = null
 dialogue_text = ""
 metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
 
@@ -55,6 +59,7 @@ action = 0
 character = ExtResource("6_wtllu")
 character_pose = "default"
 enter_left = true
+flip_character = null
 dialogue_text = "aaaaaaaaaaaaa a a a  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
 
@@ -64,6 +69,7 @@ action = 0
 character = ExtResource("6_17k63")
 character_pose = "default"
 enter_left = true
+flip_character = null
 dialogue_text = "Wow, what a brilliant test line. I'm sure this will become good dialogue eventually but for now it just needs to be a long string of text"
 metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
 

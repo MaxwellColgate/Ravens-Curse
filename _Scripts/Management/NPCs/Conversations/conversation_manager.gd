@@ -38,8 +38,18 @@ extends Node
 # The name text
 @export var name_text_box: RichTextLabel
 
-# How fast dialogue is written to the screen
-@export var letter_frequency: float = 0.02
+# The amount of time to wait after a normal char of dialogue is written to
+# the screen
+@export var default_letter_frequency: float = 0.07
+
+# A list of characters that will pause the text progression for a set number of seconds
+# after being printed
+@export var pause_characters: Dictionary[String, float] = {
+	".": 0.4,
+	"?": 0.4,
+	"!": 0.4,
+	",": 0.2,
+}
 
 
 # Is the current line being played?
@@ -109,13 +119,15 @@ func iterate_dialogue():
 	
 	match line.action:
 		line.possible_actions.INTRODUCE_CHARACTER:
-			introduce_character(line.character, line.character_pose, line.enter_left)
+			introduce_character(line)
 		line.possible_actions.SPEAK:
 			play_line(line)
 
 
 # Spawns in a new character on declared side of screen before dragging them into view
-func introduce_character(character: CharacterData, pose: String, spawn_left: bool):
+func introduce_character(line: ConversationData):
+	var character = line.character
+	
 	# Spawn in new character
 	var new_character = character_pref.instantiate()
 	new_character.name = character.name
@@ -123,7 +135,11 @@ func introduce_character(character: CharacterData, pose: String, spawn_left: boo
 	characters[character] = new_character
 	
 	var character_texture = new_character.get_node("CharacterTexture")
-	character_texture.texture = character.get_character_pose(pose, false)
+	character_texture.texture = character.get_character_pose(line.character_pose, false)
+	
+	# Flip character horizontally so their sprite faces the opposite direction
+	if line.flip_character:
+		character_texture.flip_h = true
 	
 	# Scale character up based on their height so that they all look right
 	character_texture.size.y = character_texture.texture.get_height() * character_scale
@@ -138,7 +154,7 @@ func introduce_character(character: CharacterData, pose: String, spawn_left: boo
 	target_pos.y = character_marks[0].position.y
 	
 	# Move character off screen and get target
-	if spawn_left:
+	if line.enter_left:
 		spawn_pos.x -= character_spawn_offest
 		
 		# If there is already a character on the left side of the screen,
@@ -167,22 +183,23 @@ func introduce_character(character: CharacterData, pose: String, spawn_left: boo
 	
 	# Notify character to start moving towards their mark
 	new_character.enter_scene(target_pos)
+	
 	iterate_dialogue()
 
 
-# Runs all of the logic required to play a line of dialogue
+# Slowly types out a line of dialouge into the text box
 func play_line(line: ConversationData):
 	writing_line = true
 	name_text_box.text = line.character.name
 	dialogue_text_box.text = ""
 	
-	# Cache character's sprite since it's used multiple times
 	var character_texture = characters[line.character].get_node("CharacterTexture")
-	if  characters.has(line.character):
-		character_texture.texture = line.character.get_character_pose(line.character_pose, true)
+	character_texture.texture = line.character.get_character_pose(line.character_pose, true)
 	
-	
-	for letter: String in line.dialogue_text:
+	# The amount of time after a char has been written to wait before writing
+	# the next line
+	var pause_after_char
+	for letter in line.dialogue_text:
 		# If player ends writing_line early, skip to end of line
 		if not writing_line:
 			dialogue_text_box.text = line.dialogue_text
@@ -190,7 +207,18 @@ func play_line(line: ConversationData):
 		
 		dialogue_text_box.text += letter
 		
-		await get_tree().create_timer(letter_frequency).timeout
+		# Pause longer for special characters (, . etc.)
+		if pause_characters.has(letter):
+			pause_after_char = pause_characters[letter]
+			character_texture.texture = line.character.get_character_pose(line.character_pose, false)
+		else:
+			pause_after_char = default_letter_frequency
+		
+		await get_tree().create_timer(pause_after_char).timeout
+		
+		# If character took a pause, set their sprite back to talking
+		if pause_after_char != default_letter_frequency:
+			character_texture.texture = line.character.get_character_pose(line.character_pose, true)
 	
 	character_texture.texture = line.character.get_character_pose(line.character_pose, false)
 	writing_line = false
