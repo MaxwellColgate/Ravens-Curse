@@ -4,16 +4,16 @@ class_name MoveButton
 ## Manges the logic related to the player's movement button
 
 
-# The movement button's AnimationPlayer
+## The movement button's AnimationPlayer
 @export var movement_button_anim: AnimationPlayer
 
-# The movement SFX player
+## The movement SFX player
 @export var movement_sfx: AudioStreamPlayer
 
-# The node that all location scenes are parented too
+## The node that all location scenes are parented too
 @export var location_scene_parent: Control
 
-# Is the player currently trying to move?
+## Is the player currently trying to move?
 var is_moving = false
 
 # Provide movement manager with starting scene on game start, will probably be

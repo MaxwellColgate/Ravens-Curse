@@ -3,7 +3,7 @@ extends Node
 ## Plays a conversation between characters
 
 
-# The conversation animation player
+## The conversation animation player
 @export var convo_transitions: AnimationPlayer
 
 
@@ -11,39 +11,39 @@ extends Node
 
 @export_subgroup("Introduction")
 
-# The parent node for new characters
+## The parent node for new characters
 @export var character_scene: Control
 
-# The character prefab
+## The character prefab
 @export var character_pref = load("res://_Scenes/UI/Conversations/CharacterPref.tscn")
 
-# The left and right position that characters aim for when entering screen
+## The left and right position that characters aim for when entering screen
 @export var character_marks: Array[Control]
 
-# How far off screen characters spawn before moving on screen
+## How far off screen characters spawn before moving on screen
 @export var character_spawn_offest = 0.0
 
-# The additional padding space between characters on each side of the screen
+## The additional padding space between characters on each side of the screen
 @export var character_padding = 250.0
 
-# How many times larger then their normal height should characters be scaled too
+## How many times larger then their normal height should characters be scaled too
 @export var character_scale = 3
 
 
 @export_group("Speaking")
 
-# The dialogue text
+## The dialogue text object
 @export var dialogue_text_box: RichTextLabel
 
-# The name text
+## The name text object
 @export var name_text_box: RichTextLabel
 
-# The amount of time to wait after a normal char of dialogue is written to
-# the screen
+## The amount of time to wait after a normal char of dialogue is written to
+## the screen
 @export var default_letter_frequency: float = 0.07
 
-# A list of characters that will pause the text progression for a set number of seconds
-# after being printed
+## A list of characters that will pause text progression 
+## for a set number of seconds after being printed
 @export var pause_characters: Dictionary[String, float] = {
 	".": 0.4,
 	"?": 0.4,
@@ -52,25 +52,25 @@ extends Node
 }
 
 
-# Is the current line being played?
+## Is the current line being played?
 var writing_line = false
 
-# The current conversation
+## The current conversation
 var conversation: Array[ConversationData]
 
-# The character's currently on screen
+## The character's currently on screen
 var characters = {} #CharacterData: $"res://_Scenes/Characters/Conversations/CharacterPref.tscn"
 
-# The characters that are currently on the left hand side of the screen
+## The characters that are currently on the left hand side of the screen
 var left_characters: Array[Object]
 
-# The characters that are currently on the right hand side of the screen
+## The characters that are currently on the right hand side of the screen
 var right_characters: Array[Object]
 
-# The current line of dialogue
+## The current line of dialogue
 var current_line = 0
 
-# Is the conversation ready to begin? (Animations are done, etc.)
+## Is the conversation ready to begin? (Animations are done, etc.)
 var conversation_ready = false
 
 
@@ -224,7 +224,7 @@ func play_line(line: ConversationData):
 	writing_line = false
 
 
-# Clear out all the data assosciated with this conversation and close the scene
+# Clear out all data assosciated with this conversation and close the scene
 func end_conversation():
 	conversation_ready = false
 	conversation.clear()

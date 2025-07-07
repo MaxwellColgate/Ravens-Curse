@@ -6,10 +6,10 @@ extends Node
 ## since I'm pretty sure it'll currently just freeze half way through
 
 
-# The loading screen object
+## The loading screen object
 var loading_screen
 
-# The loading screen animation player
+## The loading screen animation player
 var loading_anim: AnimationPlayer
 
 func enable_loading_screen():

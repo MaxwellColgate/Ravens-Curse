@@ -2,10 +2,10 @@ extends Node
 
 ## Runs through the provided discussion whenever the player clicks this trigger
 
-# The dialogue of this discussion
+## The dialogue of this discussion
 @export var dialogue: Array[DiscussionData]
 
-# The current line of dialogue we are on
+## The current line of dialogue we are on
 var current_dialogue_line = 0
 
 

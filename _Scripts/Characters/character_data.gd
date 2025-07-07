@@ -4,7 +4,8 @@ class_name CharacterData
 ## Stores a specific character's data, such as their assets when used in dialogue
 ## or their profile pictures used in discussions
 
-# The character's name
+
+## The character's name
 @export var name: String
 
 
@@ -12,7 +13,7 @@ class_name CharacterData
 
 @export_subgroup("Dialogue")
 
-# The dialogue poses a character can have
+## The dialogue poses a character can have
 @export var available_poses: Dictionary[String, Array] = {}
 
 # Returns the correct character sprite for a requested line of dialogue

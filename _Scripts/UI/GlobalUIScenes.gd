@@ -7,8 +7,8 @@ extends Node
 ## so that may create some funky race conditions
 
 
-# The discussion popup box
+## The discussion popup box
 var DiscussionPopup
 
-# The notification that appears when you collect a hint coin
+## The notification that appears when you collect a hint coin
 var HintCoinNotif

@@ -3,8 +3,8 @@ extends Node
 ## Handles logic related to the movement arrows
 
 
-# The path to the scene scene that the player should move too after pressing this arrow,
-# storing the PackedScene causes some cyclical loading issues so we have to use the path instead
+## The path to the scene scene that the player should move too after pressing this arrow,
+## storing the PackedScene causes some cyclical loading issues so we have to use the path instead
 @export var target_scene_path: String
 
 # Subscribe to the MovementManager's movement_state_changed signal

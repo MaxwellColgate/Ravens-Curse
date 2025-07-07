@@ -3,16 +3,16 @@ extends Node
 ## Gives the player a hint coin whenever on_hint_coin_found is called
 ## Expected to be attatched to a hint coin button in the world
 
-# The hint coin sprite that appears when you click on the trigger
+## The hint coin sprite that appears when you click on the trigger
 @export var coin: Control
 
-# The hint coin trigger's audio stream
+## The hint coin trigger's audio stream
 @export var coin_sfx: AudioStreamPlayer
 
-# The hint coin's animation player
+## The hint coin's animation player
 @export var coin_flip_anim: AnimationPlayer
 
-# Has this coin already been collected?
+## Has this coin already been collected?
 var coin_collected = false
 
 

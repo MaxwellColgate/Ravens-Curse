@@ -3,10 +3,10 @@ extends Control
 ## Activates the discussion popup at the player's mouse position
 ## with a correct profile image and dialogue text
 
-# The profile image box
+## The profile image box
 @export var profile_image: TextureRect
 
-#The dialogue text box
+## The dialogue text box
 @export var dialogue_text_box: RichTextLabel
 
 
