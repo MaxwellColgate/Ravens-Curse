@@ -14,6 +14,7 @@ script = ExtResource("1_ndkij")
 movement_curve = SubResource("Curve_a8v4u")
 
 [node name="CharacterTexture" type="TextureRect" parent="."]
+layout_mode = 0
 offset_top = -384.0
 offset_right = 256.0
 texture = ExtResource("2_a8v4u")

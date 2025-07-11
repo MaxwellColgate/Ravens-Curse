@@ -28,4 +28,4 @@ func hint_coin_found():
 
 # Provide the player with a new coin, usually called by the coin flip anim
 func unlock_hint_coin():
-	GlobalUIScenes.HintCoinNotif.visible = true
+	HintCoinNotification.display_notification()

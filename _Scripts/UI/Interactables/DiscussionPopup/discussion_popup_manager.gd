@@ -1,4 +1,5 @@
 extends Control
+class_name DiscussionPopup
 
 ## Activates the discussion popup at the player's mouse position
 ## with a correct profile image and dialogue text
@@ -9,13 +10,19 @@ extends Control
 ## The dialogue text box
 @export var dialogue_text_box: RichTextLabel
 
+## Static references to use with the static display_popup()
+static var popup: Object
+static var profile: TextureRect
+static var text_box: RichTextLabel
 
-# Notify Global list of UI scenes that this is the discussion popup
+## Set static references at ready
 func _ready():
-	GlobalUIScenes.DiscussionPopup = self
+	DiscussionPopup.popup = self
+	DiscussionPopup.profile = profile_image
+	DiscussionPopup.text_box = dialogue_text_box
 
 
-# If player clicks while the popup is visible, hide it
+## If player clicks while the popup is visible, hide it
 func _input(event):
 	if not self.visible:
 		return
@@ -25,9 +32,9 @@ func _input(event):
 			self.visible = false
 
 
-# Set proper profile picture and dialogue text, then show the dialogue box
-func display_popup(character: CharacterData, dialogue_text: String):
-	profile_image.texture = character.default_profile
-	dialogue_text_box.text = dialogue_text
-	self.position = get_viewport().get_mouse_position()
-	self.visible = true
+## Displays the discussion popup at the player's mouse position
+static func display_popup(character: CharacterData, dialogue_text: String):
+	profile.texture = character.default_profile
+	text_box.text = dialogue_text
+	popup.position = popup.get_global_mouse_position()
+	popup.visible = true

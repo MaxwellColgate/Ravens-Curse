@@ -17,7 +17,7 @@ func _on_discussion_popup_trigger_pressed() -> void:
 		current_dialogue_line = 0
 		return
 
-	GlobalUIScenes.DiscussionPopup.display_popup(dialogue[current_dialogue_line].profile_texture, 
+	DiscussionPopup.display_popup(dialogue[current_dialogue_line].profile_texture, 
 		dialogue[current_dialogue_line].dialogue_text)
 	
 	current_dialogue_line += 1
