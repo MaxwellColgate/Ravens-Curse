@@ -60,7 +60,7 @@ character = ExtResource("6_wtllu")
 character_pose = "default"
 enter_left = true
 flip_character = null
-dialogue_text = "aaaaaaaaaaaaa a a a  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+dialogue_text = "aaaaaaaaaaaaa a a a  a aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 metadata/_custom_type_script = "uid://bp4dyuu8y01eb"
 
 [sub_resource type="Resource" id="Resource_7gnmh"]
