@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://hqftoaafddc5"]
+
+[ext_resource type="Script" uid="uid://drlarftb0isii" path="res://Movement/ArrowTrigger/movement_arrow_trigger.gd" id="1_u4q3y"]
+[ext_resource type="Texture2D" uid="uid://cnsc7ye61p02f" path="res://Movement/ArrowTrigger/Textures/arrow_back_0.png" id="1_x32fe"]
+[ext_resource type="Texture2D" uid="uid://612gv7abax3x" path="res://Movement/ArrowTrigger/Textures/arrow_back_1.png" id="2_s1i2x"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_mfwfe"]
+frames = 2
+frame_0/texture = ExtResource("1_x32fe")
+frame_0/duration = 0.3
+frame_1/texture = ExtResource("2_s1i2x")
+frame_1/duration = 0.3
+
+[node name="MovementArrow" type="TextureButton"]
+anchors_preset = -1
+anchor_left = 0.72
+anchor_top = 0.756
+anchor_right = 0.755
+anchor_bottom = 0.818
+offset_top = -0.400024
+offset_right = -0.00012207
+offset_bottom = -0.200012
+texture_normal = ExtResource("1_x32fe")
+texture_hover = SubResource("AnimatedTexture_mfwfe")
+texture_disabled = ExtResource("1_x32fe")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_u4q3y")
+
+[connection signal="pressed" from="." to="." method="_on_movement_arrow_trigger_pressed"]

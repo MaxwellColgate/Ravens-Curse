@@ -21,9 +21,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ConversationStarter="*res://_Scripts/Management/NPCs/Conversations/conversation_starter.gd"
-MovementManager="*res://_Scripts/Management/Movement/movement_manager.gd"
-LoadingManager="*res://_Scripts/Management/Loading/loading_manager.gd"
+ConversationStarter="*res://Conversations/ConversationScreen/conversation_starter.gd"
+MovementManager="*res://Movement/Management/movement_manager.gd"
+LoadingManager="*res://_Game/Management/Loading/loading_manager.gd"
 
 [display]
 

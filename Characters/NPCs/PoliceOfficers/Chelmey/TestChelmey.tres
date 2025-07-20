@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=7 format=3 uid="uid://d3lq0vbel658n"]
+
+[ext_resource type="Texture2D" uid="uid://c7x8xsmvgqed1" path="res://Characters/NPCs/PoliceOfficers/Chelmey/Conversations/Default/ChelmeyDefaultIdle.png" id="1_6t43i"]
+[ext_resource type="Texture2D" uid="uid://cr3rdfabl4tfs" path="res://icon.svg" id="1_kt41i"]
+[ext_resource type="Texture2D" uid="uid://btsb20vv86j27" path="res://Characters/NPCs/PoliceOfficers/Chelmey/Conversations/Default/ChelmeyDefaultTalk0.png" id="2_smkq4"]
+[ext_resource type="Texture2D" uid="uid://mcsb2nlk0sxh" path="res://Characters/NPCs/PoliceOfficers/Chelmey/Conversations/Default/ChelmeyDefaultTalk1.png" id="3_yo5iy"]
+[ext_resource type="Script" uid="uid://dpi11ffvge5kp" path="res://Characters/character_data.gd" id="5_yy552"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_brkhq"]
+frames = 2
+frame_0/texture = ExtResource("2_smkq4")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("3_yo5iy")
+frame_1/duration = 0.1
+
+[resource]
+script = ExtResource("5_yy552")
+name = "Chelmey"
+available_poses = Dictionary[String, Array]({
+"default": [ExtResource("1_6t43i"), SubResource("AnimatedTexture_brkhq")]
+})
+default_profile = ExtResource("1_kt41i")
+metadata/_custom_type_script = "uid://dpi11ffvge5kp"
